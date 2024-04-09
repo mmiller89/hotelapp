@@ -1,0 +1,44 @@
+PART B
+---------------
+●  code including inheritance, polymorphism, and encapsulation
+
+●  search functionality with multiple row results and displays
+
+●  a database component with the functionality to securely add, modify, and delete the data
+
+●  ability to generate reports with multiple columns, multiple rows, date-time stamps, and title
+
+●  validation functionality
+
+●  industry-appropriate security features
+
+●  design elements that make the application scalable
+
+●  a user-friendly, functional GUI
+-------------------
+
+PART C
+-------------------------------------------
+●  a design document including a class diagram and design diagram
+
+●  link to where the web app is hosted with HTML code (if applicable)
+
+●  link to the GitLab repository of the code indicating the version included in this submission
+
+●  user guide for setting up and running the application for maintenance purposes
+
+●  user guide for running the application from a user perspective
+------------------------------------------
+
+PART D
+------------------------------------------------
+
+●  a test plan for a unit test, including screenshots
+
+●  unit test scripts
+
+●  the results of the unit tests based on the provided test plan, including screenshots
+
+●  summaries of changes resulting from completed tests
+
+------------------------------------------------
