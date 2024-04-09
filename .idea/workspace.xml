@@ -7,6 +7,7 @@
     <list default="true" id="64c25362-4ffe-4c22-8c56-c72c076c78bf" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,9 +34,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2esXaaG3th4yxFqSWBl2tmOdgid" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -58,7 +59,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.D387SampleCodeApplication.executor": "Run",
     "Spring Boot.LandonHotelApplication.executor": "Run",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "working__branch",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/mchlm/OneDrive/Desktop/School Projects/d387-advanced-java-working_branch/hotelapp",
     "node.js.detected.package.eslint": "true",
@@ -66,6 +67,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "ts.external.directory.path": "C:\\Users\\mchlm\\OneDrive\\Desktop\\School Projects\\d387-advanced-java-working_branch\\hotelapp\\src\\main\\UI\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
