@@ -1,104 +1,128 @@
 
 
 <header id="intro" style="display: block;">
-  <article class="fullheight" style="height: 568px;">
-    <div class="hgroup">
-      <h1>Landon Hotel</h1>
-      <h2>London, Ontario</h2>
-      <p><a href="/#welcome"><img src="assets/images/arrow.png" alt="down arrow"></a></p>
-    </div>
-  </article>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <div class="scrollmagic-pin-spacer"
        style="display: block; top: auto; left: auto; bottom: auto; right: auto; position: relative; margin: 0 auto auto; box-sizing: content-box; width: 100%; min-height: 44px; height: auto; padding-top: 0; padding-bottom: 0;">
     <nav id="nav" style="position: relative; top: 0; left: 0; bottom: auto; right: auto; width: 100%;">
-      <div class="navbar">
-        <div class="brand"><a href="/#welcome">Landon <span>Hotel</span></a></div>
+      <div class="navbar-upper">
 
-          <p *ngFor="let sentence of sentences" class="white">{{sentence}}</p>
+        <div class="white" *ngIf="loggedIn == false">
+          <form [formGroup]="loginService" (ngSubmit)="validateLogin()">
+            Username: <input type="text" class="right-push" formControlName="username">
+            Password: <input type="text" class="right-push" formControlName="password">
+            <button type="submit" class="login-button">Submit</button>
+          </form>
+        </div>
 
+        <div class="white" *ngIf="loggedIn == true">
+          <span class="right-push">Welcome {{guestName}}! - Rewards Points: {{rewardsPoints}}</span>
+          <button type="submit" class="login-button" (click)="logout()">Sign Out</button>
+        </div>
 
-      </div><!-- navbar -->
+      </div>
     </nav>
   </div>
-</header>
-<main id="wrapper">
-  <div class="scene" id="welcome">
-    <article class="content">
-      <div class="timezone">Join us for an online live presentation at the Landon Hotel on 3/29/2024, starting at {{mountainTime}} Mountain Time, {{easternTime}} Eastern Time, and {{utcTime}} UTC! </div>
 
 
 
-      <div class="row">
-        <div class=""col-12>
-          <div class="gallery">
-            <img src="assets/images/intro_room.jpg" alt="Intro Gallery Room Sample Pictures">
-            <img src="assets/images/intro_pool.jpg" alt="Intro Gallery Pool Sample Pictures">
-            <img src="assets/images/intro_dining.jpg" alt="Intro Gallery Dining Sample Pictures">
-            <img src="assets/images/intro_attractions.jpg" alt="Intro Gallery Attractions Sample Pictures">
-            <img class="hidesm" src="assets/images/intro_wedding.jpg" alt="Intro Gallery Dining Sample Pictures">
-          </div>
-          <h1>Book a Room</h1>
-          <form class="form-horizontal" [formGroup]="roomsearch"
-          (ngSubmit)="onSubmit(roomsearch)">
 
-            <div class="form-group">
-              <label for="checkin" class="col-4">Check-In:</label>
-              <div class="col-12">
-              <input id="checkin" type="date" class="form-control" formControlName="checkin">
+    <!-- SCENE 0 -->
+    <article class="fullheight background" *ngIf="scene == 0" style="height: 800px;">
+    <div class="hgroup">
+      <h1>Landon Hotel</h1>
+      <h2>London, Ontario</h2>
+
+    </div>
+    </article>
+    <!-- SCENE 0 -->
+
+    <!-- SCENE 1 -->
+  <div class="scene nav-scene" id="welcome" *ngIf="scene == 1" style="height: 800px;">
+    <article class="heading"  style="height: 875px;">
+
+        <article class="content">
+          <div class="timezone">Join us for an online live presentation at the Landon Hotel on 3/29/2024, starting at {{mountainTime}} Mountain Time, {{easternTime}} Eastern Time, and {{utcTime}} UTC! </div>
+
+
+
+          <div class="row">
+            <div class=""col-12>
+              <div class="gallery">
+                <img src="assets/images/intro_room.jpg" alt="Intro Gallery Room Sample Pictures">
+                <img src="assets/images/intro_pool.jpg" alt="Intro Gallery Pool Sample Pictures">
+                <img src="assets/images/intro_dining.jpg" alt="Intro Gallery Dining Sample Pictures">
+                <img src="assets/images/intro_attractions.jpg" alt="Intro Gallery Attractions Sample Pictures">
+                <img class="hidesm" src="assets/images/intro_wedding.jpg" alt="Intro Gallery Dining Sample Pictures">
               </div>
-            </div>
-              <div class="form-group">
-                <label for="checkout" class="col-4">Check-Out:</label>
-                <div class="col-12">
-                <input id="checkout" type="date" class="form-control" formControlName="checkout">
+              <h1>Book a Room</h1>
+              <form class="form-horizontal" [formGroup]="roomsearch"
+                    (ngSubmit)="onSubmit(roomsearch)">
+
+                <div class="form-group">
+                  <label for="checkin" class="col-4">Check-In:</label>
+                  <div class="col-12">
+                    <input id="checkin" type="date" class="form-control" formControlName="checkin">
+                  </div>
                 </div>
-              </div>
-
-              <div class="form-group">
-                <div class="col-offset-2 col-12">
-                  <button type="submit" class="btn btn-primary btn-lg"> Submit</button>
+                <div class="form-group">
+                  <label for="checkout" class="col-4">Check-Out:</label>
+                  <div class="col-12">
+                    <input id="checkout" type="date" class="form-control" formControlName="checkout">
+                  </div>
                 </div>
-              </div>
+
+                <div class="form-group">
+                  <div class="col-offset-2 col-12">
+                    <button type="submit" class="btn btn-primary btn-lg"> Submit</button>
+                  </div>
+                </div>
               </form>
 
 
-        </div>
-      </div>
-
-      <h1>Available Rooms</h1>
-
-      <div class="row" *ngIf="rooms">
-        <div class="col-12">
-          <div class="table-responsive">
-            <table class="table">
-              <tbody>
-              <tr *ngFor="let room of rooms">
-                <td>
-                  <img src="assets/images/intro_room.jpg" alt="Intro Gallery Room Sample Pictures">
-                </td>
-                <td>
-                  <strong>Room #: {{room.roomNumber}}</strong><br/>
-
-                  <strong>Price:</strong>
-                  <p> {{ room.price | currency:'USD':'symbol'}}</p>
-                  <p> {{ room.price | currency:'CAD':'symbol'}}</p>
-                  <p> {{ room.price | currency:'EUR':'symbol'}}</p>
-                </td>
-                <td>
-                  <button type="submit" class="btn btn-primary" (click)="reserveRoom(room.id)">Reserve</button>
-                </td>
-              </tr>
-              </tbody>
-            </table>
+            </div>
           </div>
-        </div>
-      </div>
+
+          <h1>Available Rooms</h1>
+
+          <div class="row" *ngIf="rooms">
+            <div class="col-12">
+              <div class="table-responsive">
+                <table class="table">
+                  <tbody>
+                  <tr *ngFor="let room of rooms">
+                    <td>
+                      <img src="assets/images/intro_room.jpg" alt="Intro Gallery Room Sample Pictures">
+                    </td>
+                    <td>
+                      <strong>Room #: {{room.roomNumber}}</strong><br/>
+
+                      <strong>Price:</strong>
+                      <p> {{ room.price | currency:'USD':'symbol'}}</p>
+                      <p> {{ room.price | currency:'CAD':'symbol'}}</p>
+                      <p> {{ room.price | currency:'EUR':'symbol'}}</p>
+                    </td>
+                    <td>
+                      <button type="submit" class="btn btn-primary" (click)="reserveRoom(room.id)">Reserve</button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+
+
     </article>
-  </div><!-- welcome -->
-  <div class="scene" id="hotelinfo">
-    <article class="heading">
+  </div>
+    <!-- SCENE 1 -->
+
+  <!-- SCENE 2 -->
+  <div class="scene nav-scene" id="hotelinfo" *ngIf="scene == 2" style="height: 800px;">
+    <article class="heading ">
       <h1>Essential Info</h1>
     </article>
     <article id="usefulinfo">
@@ -162,6 +186,9 @@
         </ul>
       </section>
     </article>
+
+
+
     <article id="greenprogram">
       <h2>Landon Green Program</h2>
       <p><strong>The Landon Hotel - London</strong> was recently renovated, and we considered the impact on the earth
@@ -170,9 +197,12 @@
         and composting program that reduces the load to local landfills, while providing valuable raw material for use
         in new products, or in the case of compost, for use in local gardens and landscapes.</p>
     </article>
-  </div><!-- hotelinfo -->
+  </div>
+  <!-- SCENE 2 -->
 
-  <div class="scene" id="dining">
+
+  <!-- SCENE 3 -->
+  <div class="scene nav-scene" id="dining" *ngIf="scene == 3" style="height: 800px;">
     <article id="areadining">
       <h1>Dining in the Area</h1>
       <p>London, Ontario is a foodie’s paradise, and the Landon Hotel is in the center of it all. With options for
@@ -215,10 +245,29 @@
     </article>
   </div><!-- dining -->
 
-</main>
+
+
+  <!-- SCENE 3 -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <div class="scrollmagic-pin-spacer"
+       style="display: block; top: auto; left: auto; bottom: auto; right: auto; position: relative; margin: 0 auto auto; box-sizing: content-box; width: 100%; min-height: 44px; height: auto; padding-top: 0; padding-bottom: 0;">
+    <nav id="nav" style="position: relative; top: 0; left: 0; bottom: auto; right: auto; width: 100%;">
+      <div class="navbar">
+        <div class="brand"><a href="#" (click)="setScene(0)">Landon <span>Hotel</span></a></div>
+        <div class="brand"><a href="#" (click)="setScene(1)">Reserve <span>a Room</span></a></div>
+        <div class="brand"><a href="#" (click)="setScene(2)">Essential <span>Info</span></a></div>
+        <div class="brand"><a href="#" (click)="setScene(3)">Dining <span>at Landon</span></a></div>
+
+      </div><!-- navbar -->
+    </nav>
+  </div>
+</header>
 <footer class="scene">
   <article class="content">
     <div id="socialmedia">
+      <p *ngFor="let sentence of sentences" class="white">{{sentence}}</p>
       <ul class="group">
         <li><a href="https://twitter.com/"><img class="icon" src="assets/images/twitter.png"
                                                 alt="icon for twitter"></a></li>
@@ -230,4 +279,8 @@
     </div>
   </article>
 </footer>
+
+
+
+
 <script src="src/app/images/script.js"></script>

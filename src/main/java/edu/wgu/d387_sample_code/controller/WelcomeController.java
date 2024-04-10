@@ -14,7 +14,7 @@ import java.util.concurrent.*;
 @RestController
 @RequestMapping("/resources")
 public class WelcomeController {
-    private ExecutorService welcomeExe = Executors.newFixedThreadPool(2);
+
 
 
     @RequestMapping("/greetings")
@@ -53,7 +53,7 @@ public class WelcomeController {
             threadEn.join();
             threadFr.join();
         } catch (Exception e){
-            System.out.println("Error occured");
+            System.out.println("Error occurred!");
         }
         return ResponseEntity.ok(languageDisplay);
 

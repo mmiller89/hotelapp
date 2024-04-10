@@ -14,9 +14,15 @@ import {map} from "rxjs/operators";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent implements OnInit{
 
+
+
   constructor(private httpClient:HttpClient, private location: Location, private locationStrategy: LocationStrategy){}
+
+
 
   private baseURL:string='http://localhost:8080';
   //private baseURL:string=this.location.path();
@@ -29,6 +35,14 @@ export class AppComponent implements OnInit{
   public easternTime: string = "";
   public mountainTime: string = "";
   public utcTime: string = "";
+
+  public scene: number = 0;
+
+  //Temporary initial values
+  public loggedIn: boolean = false;
+  public guestName: string = "";
+  public rewardsPoints: number = 0;
+  //Temporary initial values
 
   public submitted!:boolean;
   roomsearch! : FormGroup;
@@ -80,6 +94,36 @@ export class AppComponent implements OnInit{
     });
   }
 
+  loginService = new FormGroup({
+    username: new FormControl(""),
+    password: new FormControl("")
+  })
+
+
+
+  setScene(n: number): void {
+      this.scene = n;
+      console.log("Scene is: " + this.scene);
+  }
+
+  validateLogin(){
+    let userNameEntered = this.loginService.value.username;
+    let passWordEntered = this.loginService.value.password;
+
+    if (userNameEntered == "Guest" && passWordEntered == "123"){
+      this.guestName = "Guest"
+      this.loggedIn = true;
+    }
+
+  }
+
+  logout(){
+    if (this.loggedIn){
+      this.loggedIn = false;
+    }
+  }
+
+
   getWelcome(): Observable<any> {
     return this.httpClient.get(this.welcomeMessageURL, {responseType: 'json'});
   }
@@ -103,6 +147,10 @@ export class AppComponent implements OnInit{
 
       );
     }
+
+
+
+
     reserveRoom(value:string){
       this.request = new ReserveRoomRequest(value, this.currentCheckInVal, this.currentCheckOutVal);
 
@@ -133,7 +181,12 @@ export class AppComponent implements OnInit{
        return this.httpClient.get(this.baseURL + '/room/reservation/v1?checkin='+ this.currentCheckInVal + '&checkout='+this.currentCheckOutVal, {responseType: 'json'});
     }
 
+
+
+
   }
+
+
 
 
 

@@ -7,9 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RoomController {
 
-    @DeleteMapping()
-    public String deleteRoomById(@PathVariable("id") Long roomId){
-        return "Deleted.";
-    }
+
 
 }
