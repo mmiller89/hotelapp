@@ -24,13 +24,13 @@ export class AppComponent implements OnInit{
 
 
 
-  private baseURL:string='http://localhost:8080';
-  //private baseURL:string=this.location.path();
+  // private baseURL:string='http://localhost:8080';
+  private baseURL:string=this.location.path();
 
   private getUrl:string = this.baseURL + '/room/reservation/v1/';
   private postUrl:string = this.baseURL + '/room/reservation/v1';
   private welcomeMessageURL:string = this.baseURL + "/resources/greetings";
-  private timeZoneURL: string = this.baseURL + "/timezone/"
+  private timeZoneURL: string = this.baseURL + "/timezone/";
   public sentences!: string[];
   public easternTime: string = "";
   public mountainTime: string = "";
@@ -40,13 +40,14 @@ export class AppComponent implements OnInit{
 
   //Temporary initial values
   public loggedIn: boolean = false;
-  public guestName: string = "";
-  public rewardsPoints: number = 0;
+  public user: any;
   //Temporary initial values
 
   public submitted!:boolean;
   roomsearch! : FormGroup;
+
   rooms! : Room[];
+
   request!:ReserveRoomRequest;
   currentCheckInVal!:string;
   currentCheckOutVal!:string;
@@ -103,23 +104,31 @@ export class AppComponent implements OnInit{
 
   setScene(n: number): void {
       this.scene = n;
-      console.log("Scene is: " + this.scene);
   }
 
+
+
+
   validateLogin(){
-    let userNameEntered = this.loginService.value.username;
-    let passWordEntered = this.loginService.value.password;
-
-    if (userNameEntered == "Guest" && passWordEntered == "123"){
-      this.guestName = "Guest"
-      this.loggedIn = true;
-    }
-
+    let user = this.loginService.value.username!;
+    let password = this.loginService.value.password!;
+    let login = new Login(user, password);
+    JSON.stringify(login)
+    this.httpClient.put(this.baseURL + "/login/credentials", login).subscribe(res => {
+      if (res) {
+        this.loggedIn = true;
+        // @ts-ignore
+        let rewards = parseInt(res['rewardsPoints'])
+        // @ts-ignore
+        this.user = new User(res['userName'], rewards)
+      }
+    })
   }
 
   logout(){
     if (this.loggedIn){
       this.loggedIn = false;
+      this.user = null;
     }
   }
 
@@ -142,7 +151,10 @@ export class AppComponent implements OnInit{
     onSubmit({value,valid}:{value:Roomsearch,valid:boolean}){
       this.getAll().subscribe(
 
-        rooms => {console.log(Object.values(rooms)[0]);this.rooms=<Room[]>Object.values(rooms)[0]; }
+        rooms => {
+          console.log(Object.values(rooms)[0]);
+          this.rooms=<Room[]>Object.values(rooms)[0];
+        }
 
 
       );
@@ -163,7 +175,6 @@ export class AppComponent implements OnInit{
 
      const options = {
       headers: new HttpHeaders().append('key', 'value'),
-
     }
 
       this.httpClient.post(this.postUrl, body, options)
@@ -180,6 +191,8 @@ export class AppComponent implements OnInit{
 
        return this.httpClient.get(this.baseURL + '/room/reservation/v1?checkin='+ this.currentCheckInVal + '&checkout='+this.currentCheckOutVal, {responseType: 'json'});
     }
+
+
 
 
 
@@ -205,6 +218,28 @@ export interface Room{
   links:string;
 
 }
+
+export class User{
+
+  username: string;
+  rewards: number;
+
+  constructor(username: string, rewards: number) {
+    this.username = username;
+    this.rewards = rewards;
+  }
+}
+
+export class Login{
+  username:string;
+  password:string;
+
+  constructor(username: string, password: string) {
+    this.username = username;
+    this.password = password;
+  }
+}
+
 export class ReserveRoomRequest {
   roomId:string;
   checkin:string;

@@ -6,10 +6,12 @@ edu\wgu\d387_sample_code\config\ApiConfig.class
 edu\wgu\d387_sample_code\rest\ReservationResource.class
 edu\wgu\d387_sample_code\entity\ReservationEntity.class
 edu\wgu\d387_sample_code\convertor\ReservationService.class
+edu\wgu\d387_sample_code\repository\UsersRepository.class
 edu\wgu\d387_sample_code\controller\WelcomeController$1.class
 edu\wgu\d387_sample_code\convertor\ReservationServiceImpl.class
 edu\wgu\d387_sample_code\ServletInitializer.class
 edu\wgu\d387_sample_code\model\Self.class
+edu\wgu\d387_sample_code\controller\LoginController.class
 edu\wgu\d387_sample_code\LandonHotelApplication.class
 edu\wgu\d387_sample_code\rest\ResourceConstants.class
 edu\wgu\d387_sample_code\model\response\ReservableRoomResponse.class
@@ -17,6 +19,7 @@ edu\wgu\d387_sample_code\config\DatabaseConfig.class
 edu\wgu\d387_sample_code\resource\TimeCoversion.class
 edu\wgu\d387_sample_code\convertor\ReservationEntityToReservationResponseConverter.class
 edu\wgu\d387_sample_code\controller\WelcomeController.class
+edu\wgu\d387_sample_code\entity\UsersEntity.class
 edu\wgu\d387_sample_code\model\request\ReservationRequest.class
 edu\wgu\d387_sample_code\convertor\RoomEntityToReservableRoomResponseConverter.class
 edu\wgu\d387_sample_code\convertor\RoomService.class
@@ -29,3 +32,4 @@ edu\wgu\d387_sample_code\repository\RoomRepository.class
 edu\wgu\d387_sample_code\H2Bootstrap.class
 edu\wgu\d387_sample_code\repository\ReservationRepository.class
 edu\wgu\d387_sample_code\convertor\ReservationRequestToReservationEntityConverter.class
+edu\wgu\d387_sample_code\controller\LoginController$Login.class

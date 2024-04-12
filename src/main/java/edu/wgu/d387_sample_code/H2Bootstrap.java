@@ -1,7 +1,9 @@
 package edu.wgu.d387_sample_code;
 
 import edu.wgu.d387_sample_code.entity.RoomEntity;
+import edu.wgu.d387_sample_code.entity.UsersEntity;
 import edu.wgu.d387_sample_code.repository.RoomRepository;
+import edu.wgu.d387_sample_code.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -13,6 +15,9 @@ public class H2Bootstrap implements CommandLineRunner {
 
 	@Autowired
 	RoomRepository roomRepository;
+
+	@Autowired
+	UsersRepository usersRepository;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -42,8 +47,6 @@ public class H2Bootstrap implements CommandLineRunner {
 		roomRepository.save(room4);
 
 
-
-
 		Iterable<RoomEntity> itr = roomRepository.findAll();
 
 		System.out.println("Printing out data: ");
@@ -51,6 +54,18 @@ public class H2Bootstrap implements CommandLineRunner {
 			System.out.println(room.getRoomNumber());
 		}
 
+		//User Creation
+
+		System.out.println("Creation of user...");
+
+		UsersEntity user1 = new UsersEntity("Guest", "123", 1500);
+		user1.setId(1L);
+
+		UsersEntity user2 = new UsersEntity("Executive", "777", 15000);
+		user2.setId(2L);
+
+		usersRepository.save(user1);
+		usersRepository.save(user2);
 
 	}
 

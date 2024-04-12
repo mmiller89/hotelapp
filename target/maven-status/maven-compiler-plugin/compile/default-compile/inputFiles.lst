@@ -1,9 +1,11 @@
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\convertor\RoomServiceImpl.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\resource\WelcomeMessage.java
+C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\controller\LoginController.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\repository\ReservationRepository.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\resource\TimeCoversion.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\config\ConversionConfig.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\entity\ReservationEntity.java
+C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\entity\UsersEntity.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\convertor\RoomService.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\repository\RoomRepository.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\convertor\ReservationRequestToReservationEntityConverter.java
@@ -12,6 +14,7 @@ C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branc
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\model\Self.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\controller\RoomController.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\controller\TimeZoneController.java
+C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\repository\UsersRepository.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\convertor\ReservationService.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\convertor\RoomEntityToReservableRoomResponseConverter.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\ServletInitializer.java

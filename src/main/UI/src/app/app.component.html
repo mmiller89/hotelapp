@@ -10,15 +10,15 @@
       <div class="navbar-upper">
 
         <div class="white" *ngIf="loggedIn == false">
-          <form [formGroup]="loginService" (ngSubmit)="validateLogin()">
-            Username: <input type="text" class="right-push" formControlName="username">
-            Password: <input type="text" class="right-push" formControlName="password">
+          <form [formGroup]="loginService" (submit)="validateLogin()">
+            Username: <input type="text" class="right-push" name="uname" placeholder="Guest" formControlName="username">
+            Password: <input type="text" class="right-push" name="pword" placeholder="123" formControlName="password">
             <button type="submit" class="login-button">Submit</button>
           </form>
         </div>
 
         <div class="white" *ngIf="loggedIn == true">
-          <span class="right-push">Welcome {{guestName}}! - Rewards Points: {{rewardsPoints}}</span>
+          <span class="right-push">Welcome {{user.username}}! - Rewards Points: {{user.rewards}}</span>
           <button type="submit" class="login-button" (click)="logout()">Sign Out</button>
         </div>
 
@@ -106,6 +106,7 @@
                     </td>
                     <td>
                       <button type="submit" class="btn btn-primary" (click)="reserveRoom(room.id)">Reserve</button>
+                      <button type="submit" class="btn btn-primary">Reserve with Points</button>
                     </td>
                   </tr>
                   </tbody>
