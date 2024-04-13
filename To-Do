@@ -2,10 +2,21 @@ Steps:
 
 1) Switch UI to single window with nav bar toggles. (Meets Part B 7 and 8) DONE
 2) Implement mock login service (generic). (Form Control -> Meets Part B 1 and 5) DONE
-3) Creation of the User class with username, password, rewards points, and tying into database room/room service.
-4) Allow User to reserve room with points if there is enough, deduct points.
-5) Implement room service capabilities.
+3) Creation of the User class with username, password, rewards points, and tying into database room/room service. (DONE)
+4) Allow User to reserve room with points if there is enough, deduct points. (DONE)
+
+5) Link Users to Room/Reservations
+(I AM HERE. When a reservation is made, the request is sent with the user information. I need to manipulate it in the back.)
+(A User can have many reservations, and a reservation can have only one user).
+
+6) Implement room service capabilities.
+(Add more to bottom of orange page, as "Additional Services")
+(Link the user with the reserved rooms, create a roomAddition class -> add one to many link for room -> roomAddition)
+(Deduct points as needed, add room service to list)
+
+
 6) Implement a search (in book room) to see what rooms the user has booked.
+(See above)
 
 
 

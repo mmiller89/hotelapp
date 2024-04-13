@@ -4,12 +4,14 @@ package edu.wgu.d387_sample_code.rest;
 import edu.wgu.d387_sample_code.convertor.*;
 import edu.wgu.d387_sample_code.entity.ReservationEntity;
 import edu.wgu.d387_sample_code.entity.RoomEntity;
+import edu.wgu.d387_sample_code.entity.UsersEntity;
 import edu.wgu.d387_sample_code.model.request.ReservationRequest;
 import edu.wgu.d387_sample_code.model.response.ReservableRoomResponse;
 import edu.wgu.d387_sample_code.model.response.ReservationResponse;
 //import edu.wgu.d387_sample_code.repository.PageableRoomRepository;
 import edu.wgu.d387_sample_code.repository.ReservationRepository;
 import edu.wgu.d387_sample_code.repository.RoomRepository;
+import edu.wgu.d387_sample_code.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.convert.ConversionService;
@@ -55,6 +57,9 @@ public class ReservationResource {
         ConversionService conversionService;
 
         @Autowired
+        UsersRepository usersRepository;
+
+        @Autowired
         private RoomEntityToReservableRoomResponseConverter converter;
 
     @RequestMapping(path ="", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -68,9 +73,13 @@ public class ReservationResource {
 
 
         RoomService roomService=context.getBean(RoomServiceImpl.class);
+
         ReservationService reservationService=context.getBean(ReservationServiceImpl.class);
+
         List<RoomEntity> allRooms=roomService.findAll();
+
         List<ReservationEntity> allReservations=reservationService.findAll();
+
         for(ReservationEntity reservationEntity: allReservations){
             LocalDate rcheckin=reservationEntity.getCheckin();
             LocalDate rcheckout=reservationEntity.getCheckout();
@@ -78,7 +87,9 @@ public class ReservationResource {
             else if(rcheckin.isAfter(checkin)&&rcheckin.isBefore(checkout)) allRooms.remove(reservationEntity.getRoomEntity());
             else if(rcheckin.isEqual(checkin)) allRooms.remove(reservationEntity.getRoomEntity());
         }
+
         Page<RoomEntity> page=new PageImpl<>(allRooms);
+
         return page.map(converter::convert);
     }
 
@@ -110,6 +121,10 @@ public class ReservationResource {
 
             ReservationEntity reservationEntity = conversionService.convert(reservationRequest, ReservationEntity.class);
             reservationRepository.save(reservationEntity);
+
+            //PULL IN THE USER INFORMATION FROM ANGULAR AND USE entity.addReservationEntity(reservationEntity);
+
+
         ReservationService repository=context.getBean(ReservationServiceImpl.class);
             reservationEntity=repository.findLast();
         Optional<RoomEntity> result  = roomRepository.findById(reservationRequest.getRoomId());
@@ -152,5 +167,7 @@ public class ReservationResource {
 
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
+
+
 
 }

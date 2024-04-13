@@ -96,7 +96,7 @@ export class AppComponent implements OnInit{
   }
 
   loginService = new FormGroup({
-    username: new FormControl(""),
+    userName: new FormControl(""),
     password: new FormControl("")
   })
 
@@ -110,26 +110,44 @@ export class AppComponent implements OnInit{
 
 
   validateLogin(){
-    let user = this.loginService.value.username!;
+    let user = this.loginService.value.userName!;
     let password = this.loginService.value.password!;
     let login = new Login(user, password);
     JSON.stringify(login)
     this.httpClient.put(this.baseURL + "/login/credentials", login).subscribe(res => {
       if (res) {
+        console.log(res)
         this.loggedIn = true;
         // @ts-ignore
         let rewards = parseInt(res['rewardsPoints'])
         // @ts-ignore
-        this.user = new User(res['userName'], rewards)
+        this.user = new User(res['id'],res['userName'], rewards)
       }
     })
   }
 
+  //
+  //temporary testing method - remove before full launch.
+  addOrSub(num: Number){
+      if (num == 0){
+        this.user.addPoints(50)
+      } else { this.user.subtractPoints(50) }
+  }
+  //temporary testing method - remove before full launch.
+  //
+
   logout(){
     if (this.loggedIn){
+      this.saveUserInfo();
       this.loggedIn = false;
       this.user = null;
     }
+  }
+
+  saveUserInfo(){
+    let user = new User(this.user.id, this.user.userName, this.user.rewards)
+    JSON.stringify(user)
+    this.httpClient.put(this.baseURL + "/login/save", user).subscribe(res => console.log(res))
   }
 
 
@@ -163,11 +181,32 @@ export class AppComponent implements OnInit{
 
 
 
-    reserveRoom(value:string){
-      this.request = new ReserveRoomRequest(value, this.currentCheckInVal, this.currentCheckOutVal);
+    reserveRoom(value:string, method: string){
+      this.request = new ReserveRoomRequest(value, this.currentCheckInVal, this.currentCheckOutVal, this.user);
 
       this.createReservation(this.request);
+      if (method == "money"){
+        alert("Rerouting to payment information page --> Reservation success!")
+      }
+
+      this.onSubmit(this.roomsearch)
     }
+
+    reserveRoomWithPoints(id: string, value:string){
+
+      let price = parseInt(value);
+
+      if (this.user.rewards >= price){
+        alert("You have enough points, reserving now!")
+        this.user.rewards -= price;
+        this.saveUserInfo();
+        this.reserveRoom(id, "points");
+      } else {
+        alert("You don't have enough points to reserve that.")
+      }
+
+    }
+
     createReservation(body:ReserveRoomRequest) {
       let bodyString = JSON.stringify(body); // Stringify payload
       let headers = new Headers({'Content-Type': 'application/json'}); // ... Set content type to JSON
@@ -220,22 +259,30 @@ export interface Room{
 }
 
 export class User{
-
-  username: string;
+  id: string;
+  userName: string;
   rewards: number;
 
-  constructor(username: string, rewards: number) {
-    this.username = username;
+  constructor(id: string, userName: string, rewards: number) {
+    this.id = id;
+    this.userName = userName;
     this.rewards = rewards;
+  }
+
+  addPoints(points: number){
+    this.rewards += points;
+  }
+  subtractPoints(points: number){
+    this.rewards -= points;
   }
 }
 
 export class Login{
-  username:string;
+  userName:string;
   password:string;
 
-  constructor(username: string, password: string) {
-    this.username = username;
+  constructor(userName: string, password: string) {
+    this.userName = userName;
     this.password = password;
   }
 }
@@ -244,14 +291,17 @@ export class ReserveRoomRequest {
   roomId:string;
   checkin:string;
   checkout:string;
+  userCurrent: User;
 
   constructor(roomId:string,
               checkin:string,
-              checkout:string) {
+              checkout:string,
+              userCurrent: User) {
 
     this.roomId = roomId;
     this.checkin = checkin;
     this.checkout = checkout;
+    this.userCurrent = userCurrent;
   }
 }
 

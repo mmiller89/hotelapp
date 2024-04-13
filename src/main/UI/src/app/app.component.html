@@ -11,15 +11,17 @@
 
         <div class="white" *ngIf="loggedIn == false">
           <form [formGroup]="loginService" (submit)="validateLogin()">
-            Username: <input type="text" class="right-push" name="uname" placeholder="Guest" formControlName="username">
+            Username: <input type="text" class="right-push" name="uname" placeholder="Guest" formControlName="userName">
             Password: <input type="text" class="right-push" name="pword" placeholder="123" formControlName="password">
             <button type="submit" class="login-button">Submit</button>
           </form>
         </div>
 
         <div class="white" *ngIf="loggedIn == true">
-          <span class="right-push">Welcome {{user.username}}! - Rewards Points: {{user.rewards}}</span>
+          <span class="right-push">Welcome {{this.user.userName}}! - Rewards Points: {{this.user.rewards}}</span>
           <button type="submit" class="login-button" (click)="logout()">Sign Out</button>
+          <button type="submit" class="login-button" (click)="addOrSub(0)">Add 50</button>
+          <button type="submit" class="login-button" (click)="addOrSub(1)">Minus 50</button>
         </div>
 
       </div>
@@ -76,7 +78,8 @@
 
                 <div class="form-group">
                   <div class="col-offset-2 col-12">
-                    <button type="submit" class="btn btn-primary btn-lg"> Submit</button>
+                    <button type="submit" class="btn btn-primary btn-lg right-push"> Submit</button>
+
                   </div>
                 </div>
               </form>
@@ -104,9 +107,12 @@
                       <p> {{ room.price | currency:'CAD':'symbol'}}</p>
                       <p> {{ room.price | currency:'EUR':'symbol'}}</p>
                     </td>
-                    <td>
-                      <button type="submit" class="btn btn-primary" (click)="reserveRoom(room.id)">Reserve</button>
-                      <button type="submit" class="btn btn-primary">Reserve with Points</button>
+                    <td *ngIf="this.user==null">
+                      Log in now to reserve!
+                    </td>
+                    <td *ngIf="this.user!=null">
+                      <button type="submit" class="btn btn-primary right-push" (click)="reserveRoom(room.id, 'money')">Reserve</button>
+                      <button type="submit" class="btn btn-primary" (click)="reserveRoomWithPoints(room.id, room.price)">Reserve with Points</button>
                     </td>
                   </tr>
                   </tbody>

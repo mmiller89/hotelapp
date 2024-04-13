@@ -1,8 +1,4 @@
 package edu.wgu.d387_sample_code.controller;
-
-
-import com.mysql.cj.log.Log;
-import edu.wgu.d387_sample_code.entity.RoomEntity;
 import edu.wgu.d387_sample_code.entity.UsersEntity;
 import edu.wgu.d387_sample_code.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +19,7 @@ public class LoginController {
         Iterable<UsersEntity> itr = usersRepository.findAll();
 
         for (UsersEntity usr : itr) {
-            if (loginAttempt.getUsername().equals(usr.getUserName()) && loginAttempt.getPassword().equals(usr.getPassword())) {
+            if (loginAttempt.getUserName().equals(usr.getUserName()) && loginAttempt.getPassword().equals(usr.getPassword())) {
                 return usr;
             }
         }
@@ -31,29 +27,40 @@ public class LoginController {
         return null;
     }
 
-    @RequestMapping("/save")
-    public String updateRewards(@RequestBody UsersEntity user){
-        return "test test";
+    @RequestMapping(value = "/save")
+    public UsersEntity updateRewards(@RequestBody User user){
+
+        int rewards = Integer.parseInt(user.getRewards());
+
+        Iterable<UsersEntity> itr = usersRepository.findAll();
+
+        for (UsersEntity usr : itr) {
+            if (usr.getUserName().equals(user.getUserName())){
+                usr.setRewardsPoints(rewards);
+                usersRepository.save(usr);
+                return usr;
+            }
+        } return null;
     }
 
 
     public static class Login {
-        private String username;
+        private String userName;
         private String password;
 
         public Login(){}
 
-        public Login(String username, String password){
-            this.username = username;
+        public Login(String userName, String password){
+            this.userName = userName;
             this.password = password;
         }
 
-        public String getUsername() {
-            return username;
+        public String getUserName() {
+            return userName;
         }
 
-        public void setUsername(String username) {
-            this.username = username;
+        public void setUserName(String userName) {
+            this.userName = userName;
         }
 
         public String getPassword() {
@@ -62,6 +69,35 @@ public class LoginController {
 
         public void setPassword(String password) {
             this.password = password;
+        }
+    }
+
+    public static class User{
+
+        private String userName;
+        private String rewards;
+
+        public User(){}
+
+        public User(String userName, String rewards){
+            this.userName = userName;
+            this.rewards = rewards;
+        }
+
+        public String getUserName() {
+            return userName;
+        }
+
+        public void setUserName(String userName) {
+            this.userName = userName;
+        }
+
+        public String getRewards() {
+            return rewards;
+        }
+
+        public void setRewards(String rewards) {
+            this.rewards = rewards;
         }
     }
 }
