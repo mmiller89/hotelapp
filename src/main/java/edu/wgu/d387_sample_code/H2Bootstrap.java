@@ -1,5 +1,6 @@
 package edu.wgu.d387_sample_code;
 
+import edu.wgu.d387_sample_code.entity.ReservationEntity;
 import edu.wgu.d387_sample_code.entity.RoomEntity;
 import edu.wgu.d387_sample_code.entity.UsersEntity;
 import edu.wgu.d387_sample_code.repository.RoomRepository;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 
 
 @Component

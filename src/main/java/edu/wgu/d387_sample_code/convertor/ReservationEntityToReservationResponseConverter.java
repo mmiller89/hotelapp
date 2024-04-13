@@ -16,8 +16,12 @@ public class ReservationEntityToReservationResponseConverter implements Converte
         reservationResponse.setCheckin(source.getCheckin());
         reservationResponse.setCheckout(source.getCheckout());
 
+
+
         if (null != source.getRoomEntity())
             reservationResponse.setId(source.getRoomEntity().getId());
+
+
 
         return reservationResponse;
     }

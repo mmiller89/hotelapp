@@ -12,6 +12,7 @@ import java.util.List;
 public class UsersEntity {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	@NotNull
@@ -23,6 +24,11 @@ public class UsersEntity {
 	@NotNull
 	private Integer rewardsPoints;
 
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	private List<ReservationEntity> reservationList; //rename this to reservationList for clarity
+
+
+
 	public UsersEntity() {
 	}
 
@@ -30,6 +36,7 @@ public class UsersEntity {
 		this.userName = userName;
 		this.password = password;
 		this.rewardsPoints = rewardsPoints;
+
 	}
 
 	public void printInfo(){
@@ -67,5 +74,16 @@ public class UsersEntity {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public List<ReservationEntity> getReservedRooms() {
+		return reservationList;
+	}
+
+	public void addReservedRooms(ReservationEntity reservationEntity) {
+		if (null == reservationList)
+			reservationList = new ArrayList<>();
+
+		reservationList.add(reservationEntity);
 	}
 }

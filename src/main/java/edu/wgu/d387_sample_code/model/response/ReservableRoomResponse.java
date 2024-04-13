@@ -1,5 +1,6 @@
 package edu.wgu.d387_sample_code.model.response;
 
+import edu.wgu.d387_sample_code.entity.UsersEntity;
 import edu.wgu.d387_sample_code.model.Links;
 
 ;
@@ -10,6 +11,7 @@ public class ReservableRoomResponse {
 	private Integer roomNumber;
 	private Integer price;
 	private Links links;
+
 	
 	public ReservableRoomResponse() {
 		super();
@@ -45,6 +47,7 @@ public class ReservableRoomResponse {
 	public void setLinks(Links links) {
 		this.links = links;
 	}
-	
-	
+
+
+
 }

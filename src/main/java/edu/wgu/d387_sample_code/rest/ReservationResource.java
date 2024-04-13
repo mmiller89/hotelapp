@@ -1,6 +1,7 @@
 package edu.wgu.d387_sample_code.rest;
 
 
+import edu.wgu.d387_sample_code.controller.LoginController;
 import edu.wgu.d387_sample_code.convertor.*;
 import edu.wgu.d387_sample_code.entity.ReservationEntity;
 import edu.wgu.d387_sample_code.entity.RoomEntity;
@@ -32,6 +33,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import javax.swing.text.html.Option;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -99,7 +101,7 @@ public class ReservationResource {
                     Long roomId) {
 
         Optional<RoomEntity> result  = roomRepository.findById(roomId);
-        RoomEntity roomEntity= null;
+        RoomEntity roomEntity = null;
 
         if (result.isPresent()) {
             roomEntity= result.get();
@@ -115,18 +117,51 @@ public class ReservationResource {
 
     @RequestMapping(path = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ReservationResponse> createReservation(
+    public  ResponseEntity<ReservationResponse> createReservation(
             @RequestBody
             ReservationRequest reservationRequest) {
 
-            ReservationEntity reservationEntity = conversionService.convert(reservationRequest, ReservationEntity.class);
-            reservationRepository.save(reservationEntity);
+        //** Current progress - data saves correctly in database, but net::ERR_INCOMPLETE_CHUNKED_ENCODING 201 when trying
+        // to save any data.
+        //**
 
-            //PULL IN THE USER INFORMATION FROM ANGULAR AND USE entity.addReservationEntity(reservationEntity);
+
+        ReservationEntity reservationEntity = conversionService.convert(reservationRequest, ReservationEntity.class);
+
+
+// ***       this Reservation Entity holds a userEntity, however the convert does nothing with it right now so it
+//        should just be null.
+//
+//        if (reservationEntity.getUsersEntity() == null){
+//            return null;
+// ***       } -> this returns null.
+
+        reservationRepository.save(reservationEntity);
+
+        Optional<UsersEntity> ures = usersRepository.findById(reservationRequest.getUserId()); //this will correctly find the user.
+        UsersEntity usersEntity = null;
+        if (ures.isPresent()){
+            usersEntity = ures.get();
+            usersEntity.addReservedRooms(reservationEntity);
+            usersRepository.save(usersEntity);
+
+            reservationEntity.setUsersEntity(usersEntity);
+            reservationRepository.save(reservationEntity);
+        } else {
+            return null;
+        }
+//***
+//        if (usersEntity.getReservedRoom().isEmpty()){
+//            return null;
+//        } this DOES NOT RETURN NULL, there is something in reservedRoom.
+//
+//        return usersEntity.getReservedRoom().size(); --> This shows reservedRooms is being added successfully.
+//***
+
 
 
         ReservationService repository=context.getBean(ReservationServiceImpl.class);
-            reservationEntity=repository.findLast();
+        reservationEntity=repository.findLast();
         Optional<RoomEntity> result  = roomRepository.findById(reservationRequest.getRoomId());
         RoomEntity roomEntity= null;
 
@@ -143,12 +178,15 @@ public class ReservationResource {
             roomRepository.save(roomEntity);
             reservationEntity.setRoomEntity(roomEntity);
 
+
+
+
             ReservationResponse reservationResponse =
                     conversionService.convert(reservationEntity, ReservationResponse.class);
 
 
             return new ResponseEntity<>(reservationResponse, HttpStatus.CREATED);
-       // return new ResponseEntity<>(new ReservationResponse(), HttpStatus.CREATED);
+//        return new ResponseEntity<>(new ReservationResponse(), HttpStatus.CREATED);
     }
 
     @RequestMapping(path = "", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,

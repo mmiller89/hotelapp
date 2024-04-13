@@ -22,6 +22,9 @@ public class ReservationEntity {
     @JoinColumn(name = "room_id", nullable = false)
     private RoomEntity roomEntity;
 
+    @ManyToOne
+    private UsersEntity usersEntity;
+
     public ReservationEntity() {
     }
 
@@ -71,5 +74,13 @@ public class ReservationEntity {
                 ", checkout=" + checkout +
                 ", roomEntity=" + roomEntity +
                 '}';
+    }
+
+    public UsersEntity getUsersEntity() {
+        return usersEntity;
+    }
+
+    public void setUsersEntity(UsersEntity usersEntity) {
+        this.usersEntity = usersEntity;
     }
 }

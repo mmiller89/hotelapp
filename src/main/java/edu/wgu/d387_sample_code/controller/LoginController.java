@@ -1,8 +1,16 @@
 package edu.wgu.d387_sample_code.controller;
+import edu.wgu.d387_sample_code.entity.ReservationEntity;
 import edu.wgu.d387_sample_code.entity.UsersEntity;
+import edu.wgu.d387_sample_code.model.response.ReservationResponse;
 import edu.wgu.d387_sample_code.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.ConversionService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/login")
@@ -11,6 +19,9 @@ public class LoginController {
     @Autowired
     private UsersRepository usersRepository;
     private Login loginAttempt;
+
+    @Autowired
+    ConversionService conversionService;
 
     @RequestMapping(value = "/credentials")
     public UsersEntity validateLogin(@RequestBody Login login) {
@@ -28,19 +39,22 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/save")
-    public UsersEntity updateRewards(@RequestBody User user){
+    public ResponseEntity<UsersEntity> update(@RequestBody User user){
 
         int rewards = Integer.parseInt(user.getRewards());
 
-        Iterable<UsersEntity> itr = usersRepository.findAll();
+        Optional<UsersEntity> usearch = usersRepository.findById(user.getId());
+        UsersEntity usersEntity = null;
 
-        for (UsersEntity usr : itr) {
-            if (usr.getUserName().equals(user.getUserName())){
-                usr.setRewardsPoints(rewards);
-                usersRepository.save(usr);
-                return usr;
-            }
-        } return null;
+        if (usearch.isPresent()){
+            usersEntity = usearch.get();
+            usersEntity.setRewardsPoints(rewards);
+            usersRepository.save(usersEntity);
+        } else {
+            return null;
+        }
+
+        return new ResponseEntity<>(usersEntity, HttpStatus.CREATED);
     }
 
 
@@ -74,12 +88,14 @@ public class LoginController {
 
     public static class User{
 
+        private Long id;
         private String userName;
         private String rewards;
 
         public User(){}
 
-        public User(String userName, String rewards){
+        public User(Long id, String userName, String rewards){
+            this.id = id;
             this.userName = userName;
             this.rewards = rewards;
         }
@@ -98,6 +114,15 @@ public class LoginController {
 
         public void setRewards(String rewards) {
             this.rewards = rewards;
+        }
+
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
         }
     }
 }

@@ -144,7 +144,11 @@ export class AppComponent implements OnInit{
     }
   }
 
-  saveUserInfo(){
+  // User data front end
+  // id: string;
+  // userName: string;
+  // rewards: number;
+  saveUserInfo(){ //This will cause a stack overflow
     let user = new User(this.user.id, this.user.userName, this.user.rewards)
     JSON.stringify(user)
     this.httpClient.put(this.baseURL + "/login/save", user).subscribe(res => console.log(res))
@@ -182,7 +186,7 @@ export class AppComponent implements OnInit{
 
 
     reserveRoom(value:string, method: string){
-      this.request = new ReserveRoomRequest(value, this.currentCheckInVal, this.currentCheckOutVal, this.user);
+      this.request = new ReserveRoomRequest(value, this.user.id, this.currentCheckInVal, this.currentCheckOutVal);
 
       this.createReservation(this.request);
       if (method == "money"){
@@ -190,6 +194,7 @@ export class AppComponent implements OnInit{
       }
 
       this.onSubmit(this.roomsearch)
+
     }
 
     reserveRoomWithPoints(id: string, value:string){
@@ -199,8 +204,8 @@ export class AppComponent implements OnInit{
       if (this.user.rewards >= price){
         alert("You have enough points, reserving now!")
         this.user.rewards -= price;
-        this.saveUserInfo();
         this.reserveRoom(id, "points");
+        this.saveUserInfo();
       } else {
         alert("You don't have enough points to reserve that.")
       }
@@ -267,6 +272,7 @@ export class User{
     this.id = id;
     this.userName = userName;
     this.rewards = rewards;
+
   }
 
   addPoints(points: number){
@@ -289,19 +295,19 @@ export class Login{
 
 export class ReserveRoomRequest {
   roomId:string;
+  userId:string;
   checkin:string;
   checkout:string;
-  userCurrent: User;
 
   constructor(roomId:string,
+              userId: string,
               checkin:string,
-              checkout:string,
-              userCurrent: User) {
+              checkout:string) {
 
     this.roomId = roomId;
+    this.userId = userId;
     this.checkin = checkin;
     this.checkout = checkout;
-    this.userCurrent = userCurrent;
   }
 }
 

@@ -1,7 +1,9 @@
 package edu.wgu.d387_sample_code.convertor;
 
 import edu.wgu.d387_sample_code.entity.RoomEntity;
+import edu.wgu.d387_sample_code.entity.UsersEntity;
 import edu.wgu.d387_sample_code.repository.RoomRepository;
+import edu.wgu.d387_sample_code.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,7 @@ public class RoomServiceImpl implements RoomService{
     @Autowired
     public  RoomServiceImpl(RoomRepository roomRepository){
         this.roomRepository=roomRepository;
+
     }
 
 
@@ -49,10 +52,13 @@ public class RoomServiceImpl implements RoomService{
 
     }
 
+
+
     @Override
     public List<RoomEntity> findAll() {
         return (List<RoomEntity>)roomRepository.findAll();
     }
+
 
 
 }

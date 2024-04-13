@@ -1,12 +1,15 @@
 package edu.wgu.d387_sample_code.convertor;
 
 import edu.wgu.d387_sample_code.entity.ReservationEntity;
+import edu.wgu.d387_sample_code.entity.UsersEntity;
 import edu.wgu.d387_sample_code.repository.ReservationRepository;
 import edu.wgu.d387_sample_code.repository.RoomRepository;
+import edu.wgu.d387_sample_code.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Project: D387 sample code

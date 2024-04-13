@@ -1,5 +1,7 @@
 package edu.wgu.d387_sample_code.model.response;
 
+import edu.wgu.d387_sample_code.entity.UsersEntity;
+
 import java.time.LocalDate;
 
 public class ReservationResponse {
@@ -8,6 +10,8 @@ public class ReservationResponse {
     private LocalDate checkin;
     private LocalDate checkout;
 
+
+
     public ReservationResponse() {
     }
 
@@ -15,6 +19,8 @@ public class ReservationResponse {
         this.id = id;
         this.checkin = checkin;
         this.checkout = checkout;
+
+
     }
 
     public Long getId() {
@@ -40,4 +46,5 @@ public class ReservationResponse {
     public void setCheckout(LocalDate checkout) {
         this.checkout = checkout;
     }
+
 }

@@ -1,6 +1,7 @@
 package edu.wgu.d387_sample_code.convertor;
 
 import edu.wgu.d387_sample_code.entity.RoomEntity;
+import edu.wgu.d387_sample_code.entity.UsersEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -25,5 +26,7 @@ public interface RoomService {
     public RoomEntity findById(long theId);
    // public Page<RoomEntity> findAvailableRooms(LocalDate checkin, LocalDate checkout, Pageable page);
     public List<RoomEntity> findAll();
+
+
 
 }
