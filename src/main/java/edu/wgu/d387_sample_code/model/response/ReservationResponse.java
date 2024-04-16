@@ -19,8 +19,6 @@ public class ReservationResponse {
         this.id = id;
         this.checkin = checkin;
         this.checkout = checkout;
-
-
     }
 
     public Long getId() {
@@ -46,5 +44,4 @@ public class ReservationResponse {
     public void setCheckout(LocalDate checkout) {
         this.checkout = checkout;
     }
-
 }

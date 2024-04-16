@@ -11,6 +11,7 @@ C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branc
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\convertor\ReservationRequestToReservationEntityConverter.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\convertor\ReservationServiceImpl.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\rest\ReservationResource.java
+C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\convertor\UsersService.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\model\Self.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\controller\RoomController.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\controller\TimeZoneController.java
@@ -19,6 +20,7 @@ C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branc
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\convertor\RoomEntityToReservableRoomResponseConverter.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\ServletInitializer.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\repository\PageableRoomRepository.java
+C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\convertor\UsersServiceImpl.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\LandonHotelApplication.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\model\request\ReservationRequest.java
 C:\Users\mchlm\OneDrive\Desktop\School Projects\d387-advanced-java-working_branch\hotelapp\src\main\java\edu\wgu\d387_sample_code\config\ApiConfig.java

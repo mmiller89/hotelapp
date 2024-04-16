@@ -35,8 +35,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.swing.text.html.Option;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @RequestMapping(ResourceConstants.ROOM_RESERVATION_V1)
@@ -115,50 +117,51 @@ public class ReservationResource {
         return new ResponseEntity<>(roomEntity, HttpStatus.OK);
     }
 
+    @RequestMapping(path = "/reservationlist/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Set<ReservationEntity>> displayUserReservations(
+            @PathVariable
+                Long userId) {
+
+        Optional<UsersEntity> result  = usersRepository.findById(userId);
+        UsersEntity usersEntity = null;
+
+        if (result.isPresent()) {
+            usersEntity= result.get();
+        }
+        else {
+            // we didn't find the employee
+            //throw new RuntimeException("Did not find part id - " + theId);
+            return null;
+        }
+
+        return new ResponseEntity<>(usersEntity.getReservationEntities(), HttpStatus.OK);
+    }
+
     @RequestMapping(path = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public  ResponseEntity<ReservationResponse> createReservation(
+    public  ResponseEntity<ReservationEntity> createReservation(
             @RequestBody
             ReservationRequest reservationRequest) {
 
-        //** Current progress - data saves correctly in database, but net::ERR_INCOMPLETE_CHUNKED_ENCODING 201 when trying
-        // to save any data.
-        //**
-
-
         ReservationEntity reservationEntity = conversionService.convert(reservationRequest, ReservationEntity.class);
-
-
-// ***       this Reservation Entity holds a userEntity, however the convert does nothing with it right now so it
-//        should just be null.
-//
-//        if (reservationEntity.getUsersEntity() == null){
-//            return null;
-// ***       } -> this returns null.
 
         reservationRepository.save(reservationEntity);
 
-        Optional<UsersEntity> ures = usersRepository.findById(reservationRequest.getUserId()); //this will correctly find the user.
-        UsersEntity usersEntity = null;
-        if (ures.isPresent()){
-            usersEntity = ures.get();
-            usersEntity.addReservedRooms(reservationEntity);
-            usersRepository.save(usersEntity);
+        Optional<UsersEntity> repo  = usersRepository.findById(reservationRequest.getUserId());
+        UsersEntity usr = null;
 
-            reservationEntity.setUsersEntity(usersEntity);
-            reservationRepository.save(reservationEntity);
-        } else {
+        if (repo.isPresent()) {
+            usr = repo.get();
+        }
+        else {
             return null;
         }
-//***
-//        if (usersEntity.getReservedRoom().isEmpty()){
-//            return null;
-//        } this DOES NOT RETURN NULL, there is something in reservedRoom.
-//
-//        return usersEntity.getReservedRoom().size(); --> This shows reservedRooms is being added successfully.
-//***
 
+        usr.addReservationEntities(reservationEntity);
+        usersRepository.save(usr);
 
+        reservationEntity.setUsersEntity(usr);
+        reservationRepository.save(reservationEntity);
 
         ReservationService repository=context.getBean(ReservationServiceImpl.class);
         reservationEntity=repository.findLast();
@@ -174,19 +177,14 @@ public class ReservationResource {
             return null;
         }
 
-        roomEntity.addReservationEntity(reservationEntity);
-            roomRepository.save(roomEntity);
-            reservationEntity.setRoomEntity(roomEntity);
+        roomRepository.save(roomEntity);
+        reservationEntity.setRoomEntity(roomEntity);
 
 
 
 
-            ReservationResponse reservationResponse =
-                    conversionService.convert(reservationEntity, ReservationResponse.class);
+        return new ResponseEntity<>(reservationEntity, HttpStatus.OK);
 
-
-            return new ResponseEntity<>(reservationResponse, HttpStatus.CREATED);
-//        return new ResponseEntity<>(new ReservationResponse(), HttpStatus.CREATED);
     }
 
     @RequestMapping(path = "", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,

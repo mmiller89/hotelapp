@@ -1,0 +1,28 @@
+package edu.wgu.d387_sample_code.convertor;
+
+import edu.wgu.d387_sample_code.entity.RoomEntity;
+import edu.wgu.d387_sample_code.entity.UsersEntity;
+
+import java.util.List;
+
+/**
+ * Project: D387 sample code
+ * Package: edu.wgu.d387_sample_code.convertor
+ * <p>
+ * User: carolyn.sher
+ * Date: 9/16/2022
+ * Time: 4:52 PM
+ * <p>
+ * Created with IntelliJ IDEA
+ * To change this template use File | Settings | File Templates.
+ */
+
+public interface UsersService {
+
+    public UsersEntity findUserById(long theId);
+
+    public void saveUser(UsersEntity usersEntity);
+
+
+
+}

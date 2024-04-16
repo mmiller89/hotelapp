@@ -107,7 +107,9 @@ export class AppComponent implements OnInit{
   }
 
 
-
+  displayUserReservations(){
+    return this.httpClient.get(this.getUrl + "reservationlist/" + this.user.id, {responseType: 'json'}).subscribe(res => console.log(res))
+  }
 
   validateLogin(){
     let user = this.loginService.value.userName!;
@@ -148,7 +150,7 @@ export class AppComponent implements OnInit{
   // id: string;
   // userName: string;
   // rewards: number;
-  saveUserInfo(){ //This will cause a stack overflow
+  saveUserInfo(){
     let user = new User(this.user.id, this.user.userName, this.user.rewards)
     JSON.stringify(user)
     this.httpClient.put(this.baseURL + "/login/save", user).subscribe(res => console.log(res))
@@ -185,32 +187,30 @@ export class AppComponent implements OnInit{
 
 
 
-    reserveRoom(value:string, method: string){
+    reserveRoom(value:string, method: string, price: string){
       this.request = new ReserveRoomRequest(value, this.user.id, this.currentCheckInVal, this.currentCheckOutVal);
 
+      const roomPrice = parseInt(price);
+
       this.createReservation(this.request);
+
+      console.log(roomPrice);
+      console.log(this.user.rewards)
+
       if (method == "money"){
-        alert("Rerouting to payment information page --> Reservation success!")
+        alert("Rerouting to payment information page! (Not Actual)")
+      }
+      else if (method == "points" && this.user.rewards >= roomPrice){
+        alert("Paying with points!")
+        this.user.subtractPoints(roomPrice)
+      } else {
+        alert("You don't have enough points, reverting to normal payment!")
       }
 
       this.onSubmit(this.roomsearch)
-
     }
 
-    reserveRoomWithPoints(id: string, value:string){
 
-      let price = parseInt(value);
-
-      if (this.user.rewards >= price){
-        alert("You have enough points, reserving now!")
-        this.user.rewards -= price;
-        this.reserveRoom(id, "points");
-        this.saveUserInfo();
-      } else {
-        alert("You don't have enough points to reserve that.")
-      }
-
-    }
 
     createReservation(body:ReserveRoomRequest) {
       let bodyString = JSON.stringify(body); // Stringify payload
@@ -268,11 +268,11 @@ export class User{
   userName: string;
   rewards: number;
 
+
   constructor(id: string, userName: string, rewards: number) {
     this.id = id;
     this.userName = userName;
     this.rewards = rewards;
-
   }
 
   addPoints(points: number){

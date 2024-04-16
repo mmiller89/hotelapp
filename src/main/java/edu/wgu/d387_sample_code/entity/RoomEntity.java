@@ -22,11 +22,6 @@ public class RoomEntity {
 	@NotNull
 	private String price;
 
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	private List<ReservationEntity> reservationEntityList;
-
-
-
 	public RoomEntity() {
 	}
 
@@ -57,21 +52,6 @@ public class RoomEntity {
 
 	public void setPrice(String price) {
 		this.price = price;
-	}
-
-	public List<ReservationEntity> getReservationEntityList() {
-		return reservationEntityList;
-	}
-
-	public void setReservationEntityList(List<ReservationEntity> reservationEntityList) {
-		this.reservationEntityList = reservationEntityList;
-	}
-
-	public void addReservationEntity(ReservationEntity reservationEntity) {
-		if (null == reservationEntityList)
-			reservationEntityList = new ArrayList<>();
-
-		reservationEntityList.add(reservationEntity);
 	}
 
 }

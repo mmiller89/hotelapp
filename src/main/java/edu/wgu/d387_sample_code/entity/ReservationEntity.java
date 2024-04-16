@@ -1,5 +1,7 @@
 package edu.wgu.d387_sample_code.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -18,20 +20,22 @@ public class ReservationEntity {
     @NotNull
     private LocalDate checkout;
 
-    @ManyToOne
-    @JoinColumn(name = "room_id", nullable = false)
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "room_id", referencedColumnName = "id")
     private RoomEntity roomEntity;
 
-    @ManyToOne
+    @JsonBackReference
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
     private UsersEntity usersEntity;
 
     public ReservationEntity() {
     }
 
-    public ReservationEntity(LocalDate checkin, LocalDate checkout, RoomEntity roomEntity) {
+    public ReservationEntity(LocalDate checkin, LocalDate checkout) {
         this.checkin = checkin;
         this.checkout = checkout;
-        this.roomEntity = roomEntity;
     }
 
     public Long getId() {

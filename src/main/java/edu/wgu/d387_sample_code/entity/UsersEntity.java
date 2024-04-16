@@ -4,7 +4,9 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -24,8 +26,8 @@ public class UsersEntity {
 	@NotNull
 	private Integer rewardsPoints;
 
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	private List<ReservationEntity> reservationList; //rename this to reservationList for clarity
+	@OneToMany(mappedBy = "usersEntity", cascade = CascadeType.ALL, orphanRemoval=true, fetch = FetchType.LAZY)
+	private Set<ReservationEntity> reservationEntities = new HashSet<>();
 
 
 
@@ -76,14 +78,18 @@ public class UsersEntity {
 		this.id = id;
 	}
 
-	public List<ReservationEntity> getReservedRooms() {
-		return reservationList;
+	public Set<ReservationEntity> getReservationEntities() {
+		return reservationEntities;
 	}
 
-	public void addReservedRooms(ReservationEntity reservationEntity) {
-		if (null == reservationList)
-			reservationList = new ArrayList<>();
+	public void setReservationEntities(Set<ReservationEntity> reservation){
+		this.reservationEntities = reservation;
+	}
 
-		reservationList.add(reservationEntity);
+	public void addReservationEntities(ReservationEntity reservationEntity) {
+		if (reservationEntities == null){
+			reservationEntities = new HashSet<>();
+		}
+		reservationEntities.add(reservationEntity);
 	}
 }

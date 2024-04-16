@@ -1,13 +1,10 @@
 Steps:
 
-1) Switch UI to single window with nav bar toggles. (Meets Part B 7 and 8) DONE
-2) Implement mock login service (generic). (Form Control -> Meets Part B 1 and 5) DONE
-3) Creation of the User class with username, password, rewards points, and tying into database room/room service. (DONE)
-4) Allow User to reserve room with points if there is enough, deduct points. (DONE)
-
-5) Link Users to Room/Reservations
-(I AM HERE. When a reservation is made, the request is sent with the user information. I need to manipulate it in the back.)
-(A User can have many reservations, and a reservation can have only one user).
+1) Switch UI to single window with nav bar toggles. (✔️)
+2) Implement mock login service (generic). (✔️)
+3) Creation of the User class with username, password, rewards points, and tying into database room/room service. (✔️)
+4) Allow User to reserve room with points if there is enough, deduct points. (✔️)
+5) Link Users to Room/Reservations (✔️)
 
 6) Implement room service capabilities.
 (Add more to bottom of orange page, as "Additional Services")
@@ -23,23 +20,22 @@ Steps:
 
 PART B
 ---------------
-●  code including inheritance, polymorphism, and encapsulation
+●  code including inheritance, polymorphism, and encapsulation (✔️)
 
 ●  search functionality with multiple row results and displays
 
-●  a database component with the functionality to securely add, modify, and delete the data
+●  a database component with the functionality to securely add, modify, and delete the data (Create a User Function can be add data)
 
 ●  ability to generate reports with multiple columns, multiple rows, date-time stamps, and title
 
 ●  validation functionality
 
-●  industry-appropriate security features
+●  industry-appropriate security features (✔️)
 
-●  design elements that make the application scalable
-**(Nav bar below can be altered/added to -> upper nav bar can be added to if needed)**
+●  design elements that make the application scalable (✔️)
 
-●  a user-friendly, functional GUI
-**(Implemented Angular Scence changes to clean up UI)**
+●  a user-friendly, functional GUI (✔️)
+
 -------------------
 
 PART C

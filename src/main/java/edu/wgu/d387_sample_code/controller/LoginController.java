@@ -41,10 +41,12 @@ public class LoginController {
     @RequestMapping(value = "/save")
     public ResponseEntity<UsersEntity> update(@RequestBody User user){
 
-        int rewards = Integer.parseInt(user.getRewards());
 
+
+        int rewards = Integer.parseInt(user.getRewards());
         Optional<UsersEntity> usearch = usersRepository.findById(user.getId());
         UsersEntity usersEntity = null;
+
 
         if (usearch.isPresent()){
             usersEntity = usearch.get();
@@ -55,6 +57,7 @@ public class LoginController {
         }
 
         return new ResponseEntity<>(usersEntity, HttpStatus.CREATED);
+
     }
 
 

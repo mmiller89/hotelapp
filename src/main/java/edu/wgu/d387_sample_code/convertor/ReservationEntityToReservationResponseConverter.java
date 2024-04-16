@@ -18,6 +18,7 @@ public class ReservationEntityToReservationResponseConverter implements Converte
 
 
 
+
         if (null != source.getRoomEntity())
             reservationResponse.setId(source.getRoomEntity().getId());
 

@@ -83,6 +83,7 @@
                   </div>
                 </div>
               </form>
+              <button *ngIf="this.user!=null" class="btn btn-primary btn-lg" (click)="displayUserReservations()">Show Reservations</button>
 
 
             </div>
@@ -111,8 +112,8 @@
                       Log in now to reserve!
                     </td>
                     <td *ngIf="this.user!=null">
-                      <button type="submit" class="btn btn-primary right-push" (click)="reserveRoom(room.id, 'money')">Reserve</button>
-                      <button type="submit" class="btn btn-primary" (click)="reserveRoomWithPoints(room.id, room.price)">Reserve with Points</button>
+                      <button type="submit" class="btn btn-primary right-push" (click)="reserveRoom(room.id, 'money', room.price)">Reserve</button>
+                      <button type="submit" class="btn btn-primary" (click)="reserveRoom(room.id, 'points', room.price)"> Reserve with Points</button>
                     </td>
                   </tr>
                   </tbody>

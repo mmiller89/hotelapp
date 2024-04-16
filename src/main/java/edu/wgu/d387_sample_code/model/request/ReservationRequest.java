@@ -19,8 +19,7 @@ public class ReservationRequest {
         public ReservationRequest() {
         }
 
-        public ReservationRequest(Long id, Long roomId, Long userId, LocalDate checkin, LocalDate checkout) {
-                this.id = id;
+        public ReservationRequest( Long roomId, Long userId, LocalDate checkin, LocalDate checkout) {
                 this.roomId = roomId;
                 this.userId = userId;
                 this.checkin = checkin;
