@@ -29,5 +29,5 @@ public interface RoomService {
     public List<RoomEntity> findAll();
 
 
-
+    List<RoomEntity> findAllFreeRooms();
 }

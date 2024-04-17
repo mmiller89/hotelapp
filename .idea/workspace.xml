@@ -6,52 +6,45 @@
   <component name="ChangeListManager">
     <list default="true" id="64c25362-4ffe-4c22-8c56-c72c076c78bf" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/entity/AdditionEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/model/request/UpdateAdditionsRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/repository/AdditionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/main.92e911f1374a922b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/main.6023a3892856c7e1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/To-Do" beforeDir="false" afterPath="$PROJECT_DIR$/To-Do" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/2.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/3.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/42.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/42.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/46.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/46.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/47.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/47.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/48.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/48.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/49.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/49.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/50.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/50.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/58.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/58.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/78.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/78.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/79.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/79.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/80.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/80.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/81.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/81.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/82.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/82.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/83.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/83.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/index.pack.old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/src/app/app.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/H2Bootstrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/H2Bootstrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/controller/WelcomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/controller/WelcomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/convertor/RoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/convertor/RoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/convertor/RoomServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/convertor/RoomServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/entity/ReservationEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/entity/ReservationEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/entity/RoomEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/entity/RoomEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/entity/UsersEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/entity/UsersEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/model/request/ReservationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/model/request/ReservationRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/rest/ReservationResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/rest/ReservationResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/main.948ade1f7cba6be8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/main.92e911f1374a922b.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/H2Bootstrap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/H2Bootstrap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/WelcomeController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/WelcomeController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/WelcomeController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/WelcomeController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/WelcomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/WelcomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/LoginController$Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/LoginController$Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/LoginController$User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/LoginController$User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/convertor/RoomService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/convertor/RoomService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/convertor/RoomServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/convertor/RoomServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/entity/ReservationEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/entity/ReservationEntity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/entity/RoomEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/entity/RoomEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/entity/UsersEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/entity/UsersEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/model/request/ReservationRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/model/request/ReservationRequest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/rest/ReservationResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/rest/ReservationResource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/main.23e006d41dbde86b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/main.948ade1f7cba6be8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/main.a18c5928e5996f91.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/main.b2cf329d198c1296.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/main.bcabfef0d4196279.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/main.dcdd42e49b817ddc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.0a86a121355964cb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.92e911f1374a922b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +194,8 @@
       <workItem from="1713193511745" duration="14056000" />
       <workItem from="1713215253664" duration="11509000" />
       <workItem from="1713274327125" duration="7086000" />
-      <workItem from="1713290589709" duration="34824000" />
+      <workItem from="1713290589709" duration="34889000" />
+      <workItem from="1713365980831" duration="15891000" />
     </task>
     <servers />
   </component>
@@ -218,20 +212,14 @@
           <properties class="java.lang.StackOverflowError" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/main/UI/src/app/app.component.ts</url>
-          <line>228</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/rest/ReservationResource.java</url>
-          <line>211</line>
+          <line>195</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/rest/ReservationResource.java</url>
-          <line>124</line>
+          <line>128</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>

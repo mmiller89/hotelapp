@@ -80,12 +80,16 @@ public class ReservationResource {
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
                     LocalDate checkout, Pageable pageable) {
 
+        if (checkin.isAfter(checkout)){
+            return null;
+        }
+
 
         RoomService roomService=context.getBean(RoomServiceImpl.class);
 
         ReservationService reservationService=context.getBean(ReservationServiceImpl.class);
 
-        List<RoomEntity> allRooms=roomService.findAll();
+        List<RoomEntity> allRooms=roomService.findAllFreeRooms();
 
         List<ReservationEntity> allReservations=reservationService.findAll();
 
@@ -140,24 +144,6 @@ public class ReservationResource {
         return new ResponseEntity<>(usersEntity.getReservationEntities(), HttpStatus.OK);
     }
 
-    @RequestMapping(path = "reservationlist/testest/{userIds}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UsersEntity> TEST(
-            @PathVariable
-            Long userIds) {
-
-        Optional<UsersEntity> result  = usersRepository.findById(userIds);
-        UsersEntity usersEntity = null;
-
-        if (result.isPresent()) {
-            usersEntity= result.get();
-        }
-        else {
-            return null;
-        }
-
-        return new ResponseEntity<>(usersEntity, HttpStatus.OK);
-    }
-
     @RequestMapping(path = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public  ResponseEntity<ReservationEntity> createReservation(
@@ -193,11 +179,9 @@ public class ReservationResource {
             roomEntity= result.get();
         }
         else {
-            // we didn't find the employee
-            //throw new RuntimeException("Did not find part id - " + theId);
             return null;
         }
-
+        roomEntity.setReserved(true);
         roomRepository.save(roomEntity);
         reservationEntity.setRoomEntity(roomEntity);
         reservationRepository.save(reservationEntity);
@@ -223,19 +207,6 @@ public class ReservationResource {
         if (repo.isPresent()) {
             roomEntity = repo.get();
         }
-//        Optional<ReservationEntity> repo2 = reservationRepository.findById(updateRequest.getReservationId());
-//        ReservationEntity reservationEntity = null;
-//
-//        if (repo2.isPresent()) {
-//            reservationEntity = repo2.get();
-//        }
-//
-//        Optional<UsersEntity> repo3 = usersRepository.findById(updateRequest.getUserId());
-//        UsersEntity usersEntity = null;
-//
-//        if (repo3.isPresent()) {
-//            usersEntity = repo3.get();
-//        }
 
         for (AdditionEntity value: updateRequest.getAdditions()){
 
@@ -267,6 +238,20 @@ public class ReservationResource {
     public ResponseEntity<Void> deleteReservation(
             @PathVariable
             long reservationId) {
+
+        Optional<ReservationEntity> result  = reservationRepository.findById(reservationId);
+        ReservationEntity res = null;
+
+        if (result.isPresent()) {
+            res = result.get();
+            RoomEntity room = res.getRoomEntity();
+            room.setReserved(false);
+            room.setAdditionEntities(new HashSet<>());
+            roomRepository.save(room);
+        }
+
+
+
         try{
             reservationRepository.deleteById(reservationId);
         } catch (Exception e){}

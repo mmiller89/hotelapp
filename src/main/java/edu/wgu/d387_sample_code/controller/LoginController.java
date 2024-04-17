@@ -1,7 +1,12 @@
 package edu.wgu.d387_sample_code.controller;
+import edu.wgu.d387_sample_code.entity.AdditionEntity;
 import edu.wgu.d387_sample_code.entity.ReservationEntity;
+import edu.wgu.d387_sample_code.entity.RoomEntity;
 import edu.wgu.d387_sample_code.entity.UsersEntity;
 import edu.wgu.d387_sample_code.model.response.ReservationResponse;
+import edu.wgu.d387_sample_code.repository.AdditionRepository;
+import edu.wgu.d387_sample_code.repository.ReservationRepository;
+import edu.wgu.d387_sample_code.repository.RoomRepository;
 import edu.wgu.d387_sample_code.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
@@ -9,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +29,15 @@ public class LoginController {
     @Autowired
     ConversionService conversionService;
 
+    @Autowired
+    ReservationRepository reservationRepository;
+
+    @Autowired
+    RoomRepository roomRepository;
+
+    @Autowired
+    AdditionRepository additionRepository;
+
     @RequestMapping(value = "/credentials")
     public UsersEntity validateLogin(@RequestBody Login login) {
         loginAttempt = login;
@@ -36,6 +51,61 @@ public class LoginController {
         }
 
         return null;
+    }
+
+    @RequestMapping(value = "/getallusers")
+    public List<UsersEntity> getAllUsers() {
+
+
+        Iterable<UsersEntity> itr = usersRepository.findAll();
+        List<UsersEntity> usrs = new ArrayList<>();
+
+        for (UsersEntity usr : itr) {
+            usrs.add(usr);
+        }
+
+        return usrs;
+    }
+
+    @RequestMapping(value = "/getallreservations")
+    public List<ReservationEntity> getAllReserves() {
+
+
+        Iterable<ReservationEntity> itr = reservationRepository.findAll();
+        List<ReservationEntity> reserves = new ArrayList<>();
+
+        for (ReservationEntity rsv : itr) {
+            reserves.add(rsv);
+        }
+
+        return reserves;
+    }
+
+    @RequestMapping(value = "/getallrooms")
+    public List<RoomEntity> getAllRooms() {
+
+
+        Iterable<RoomEntity> itr = roomRepository.findAll();
+        List<RoomEntity> roomz = new ArrayList<>();
+
+        for (RoomEntity room : itr) {
+            roomz.add(room);
+        }
+
+        return roomz;
+    }
+
+    @RequestMapping(value = "/getalladditions")
+    public List<AdditionEntity> getAllAdditions() {
+
+
+        Iterable<AdditionEntity> itr = additionRepository.findAll();
+        List<AdditionEntity> adds = new ArrayList<>();
+
+        for (AdditionEntity add : itr) {
+            adds.add(add);
+        }
+        return adds;
     }
 
     @RequestMapping(value = "/save")

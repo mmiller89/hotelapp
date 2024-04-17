@@ -21,7 +21,7 @@ public class ReservationEntity {
     private LocalDate checkout;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "room_id", referencedColumnName = "id")
     private RoomEntity roomEntity;
 

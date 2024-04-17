@@ -30,12 +30,15 @@ public class RoomEntity {
 	@ManyToMany
 	private Set<AdditionEntity> additionEntities;
 
+	private boolean reserved;
+
 	public RoomEntity() {
 	}
 
-	public RoomEntity(Integer roomNumber, String price) {
+	public RoomEntity(Integer roomNumber, String price, boolean reserved) {
 		this.roomNumber = roomNumber;
 		this.price = price;
+		this.reserved = reserved;
 	}
 
 	public Long getId() {
@@ -75,5 +78,13 @@ public class RoomEntity {
 			additionEntities = new HashSet<>();
 		}
 		additionEntities.add(additionEntity);
+	}
+
+	public boolean isReserved() {
+		return reserved;
+	}
+
+	public void setReserved(boolean reserved) {
+		this.reserved = reserved;
 	}
 }

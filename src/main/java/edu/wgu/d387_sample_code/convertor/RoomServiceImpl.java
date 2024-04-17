@@ -1,12 +1,11 @@
 package edu.wgu.d387_sample_code.convertor;
 
 import edu.wgu.d387_sample_code.entity.RoomEntity;
-import edu.wgu.d387_sample_code.entity.UsersEntity;
 import edu.wgu.d387_sample_code.repository.RoomRepository;
-import edu.wgu.d387_sample_code.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -57,6 +56,20 @@ public class RoomServiceImpl implements RoomService{
     @Override
     public List<RoomEntity> findAll() {
         return (List<RoomEntity>)roomRepository.findAll();
+    }
+
+    @Override
+    public List<RoomEntity> findAllFreeRooms(){
+        Iterable<RoomEntity> itr = roomRepository.findAll();
+        List<RoomEntity> freeRooms = new ArrayList<>();
+
+        for (RoomEntity rm: itr){
+            if (!rm.isReserved()){
+                freeRooms.add(rm);
+            }
+        }
+
+        return freeRooms;
     }
 
 

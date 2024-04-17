@@ -32,7 +32,7 @@ export class AppComponent implements OnInit{
   public easternTime: string = "";
   public mountainTime: string = "";
   public utcTime: string = "";
-
+  public tableScene: number = 0;
   public scene: number = 0;
 
 
@@ -40,18 +40,27 @@ export class AppComponent implements OnInit{
   public user: any;
   public reservationDisplayToggle: number = 0;
   public additionsAvailable!: boolean;
-  public additions! : Addition[]; //this is used for an array of additions that can be used, comes from database.
+  public additions! : Addition[];
 
 
   public submitted!:boolean;
   roomsearch! : FormGroup;
 
   rooms! : Room[];
-  reservations: Reservation[] = []; //used for displaying.
+  reservations: Reservation[] = [];
+
 
   request!:ReserveRoomRequest;
   currentCheckInVal!:string;
   currentCheckOutVal!:string;
+
+//For Database Reports //
+  users: DataReportUser[] = [];
+  reserves: DataReportReservation[] = [];
+  roomData: DataReportRoom[] = [];
+  additionData: DataReportAdditions[] = [];
+
+
 
     ngOnInit(){
       this.roomsearch= new FormGroup({
@@ -111,16 +120,131 @@ export class AppComponent implements OnInit{
       this.scene = n;
   }
 
-  display(){
-    return this.httpClient.get(this.getUrl + "reservationlist/testest/" + this.user.id, {responseType: 'json'}).subscribe(res => console.log(res))
+  setTableState(n: number){
+      this.tableScene = n;
   }
-  displayUserReservations(){ //THIS MUST INCLUDE THE ROOM ADDITIONS AS WELL
+
+  createReport(){
+      this.createUserReport();
+      this.createReservationReport();
+      this.createRoomReport();
+      this.createAdditionReport();
+      this.scene = 4;
+
+  }
+
+  createUserReport(){
+    this.httpClient.get(this.baseURL + "/login/getallusers",{responseType: 'json'}).subscribe(res =>{
+      let obLength = Object.keys(res).length;
+      if (obLength > 0){
+        for (let i = 0; i < obLength; i++){
+          // @ts-ignore
+          let id = res[i]['id'];
+          // @ts-ignore
+          let name = res[i]['userName']
+          // @ts-ignore
+          let password = res[i]['password']
+          // @ts-ignore
+          let rewards = res[i]['rewardsPoints']
+
+          let reservedRes: string[] = []
+          // @ts-ignore
+          for (let x = 0; x < res[i]['reservationEntities'].length; x++){
+            // @ts-ignore
+            reservedRes[x] = res[i]['reservationEntities'][x]['id'];
+          }
+
+          this.users[i] = new DataReportUser(id, name, password, rewards, reservedRes)
+        }
+      }
+    });
+  }
+
+  // id: string;
+  // checkin: string;
+  // checkout: string;
+  // attachedRoomNumber: string;
+
+  createReservationReport(){
+    this.httpClient.get(this.baseURL + "/login/getallreservations",{responseType: 'json'}).subscribe(res =>{
+      let obLength = Object.keys(res).length;
+      if (obLength > 0){
+        for (let i = 0; i < obLength; i++){
+          // @ts-ignore
+          let id = res[i]['id'];
+          // @ts-ignore
+          let checkin = res[i]['checkin']
+          // @ts-ignore
+          let checkout = res[i]['checkout']
+          // @ts-ignore
+          let roomNumber = res[i]['roomEntity']['roomNumber']
+
+          this.reserves[i] = new DataReportReservation(id, checkin, checkout, roomNumber)
+        }
+      }
+    });
+  }
+
+  createRoomReport(){
+    this.httpClient.get(this.baseURL + "/login/getallrooms",{responseType: 'json'}).subscribe(res =>{
+      let obLength = Object.keys(res).length;
+      console.log(res)
+      if (obLength > 0){
+        for (let i = 0; i < obLength; i++){
+          // @ts-ignore
+          let id = res[i]['id'];
+          // @ts-ignore
+          let roomNumber = res[i]['roomNumber']
+          // @ts-ignore
+          let price = res[i]['price']
+          // @ts-ignore
+          let reservedAdditions: string[] = []
+
+          // @ts-ignore
+          if (res[i]['additionEntities'].length > 0){
+            // @ts-ignore
+            for (let x = 0; x < res[i]['additionEntities'].length; x++){
+              // @ts-ignore
+              reservedAdditions[x] = res[i]['additionEntities'][x]['name'];
+            }
+          }
+          // @ts-ignore
+          this.roomData[i] = new DataReportRoom(id, roomNumber, price, reservedAdditions)
+        }
+      }
+    });
+  }
+
+  createAdditionReport(){
+    this.httpClient.get(this.baseURL + "/login/getalladditions",{responseType: 'json'}).subscribe(res =>{
+      let obLength = Object.keys(res).length;
+      console.log(res)
+      if (obLength > 0){
+        for (let i = 0; i < obLength; i++){
+          // @ts-ignore
+          let id = res[i]['id'];
+          // @ts-ignore
+          let name = res[i]['name']
+
+          // @ts-ignore
+          let description = res[i]['description']
+          // @ts-ignore
+          let price = res[i]['price']
+
+          this.additionData[i] = new DataReportAdditions(id, name, description, price)
+        }
+      }
+    });
+  }
+
+  displayUserReservations(){
+      this.reservations = []
     return this.httpClient.get(this.getUrl + "reservationlist/" + this.user.id, {responseType: 'json'}).subscribe(res => {
       console.log("THE SERVER RESPONSE");
       console.log(res);
 
      let obLength = Object.keys(res).length;
-      console.log(obLength)
+     console.log(obLength)
      let additionArr: Addition[] = [];
 
 
@@ -196,8 +320,6 @@ export class AppComponent implements OnInit{
     }
 
 
-    //LAST PART - WHEN I CALL THIS, ALL CHECKED BOXES SHOULD BE ERASED, AND PERMANENTLY ADDED TO MIDDLE COLUMN
-  //UNTIL I DELETE THE ROOM.
     buyAdditions(value: string, reserve: Reservation){ //THIS MUST BE LOGGED TO DATABASE IF SUCCESSFUL
       if (value == "cash"){
         this.updateReservation(reserve);
@@ -208,6 +330,7 @@ export class AppComponent implements OnInit{
         this.updateReservation(reserve);
         this.user.rewards -= reserve.cashOut;
         reserve.cashOut = 0;
+        this.saveUserInfo()
         alert("Thank you, points applied to purchase.")
         this.displayUserReservations();
       } else {
@@ -230,7 +353,17 @@ export class AppComponent implements OnInit{
 
       let id = parseInt(reservation.reservationId)
       this.httpClient.delete(this.postUrl + "/" + id).subscribe()
-      const index = this.reservations.indexOf(reservation);
+
+      let index;
+
+      for (let res of this.reserves){
+        if (res.id == reservation.reservationId){
+          index = this.reserves.indexOf(res);
+          this.reserves.splice(index, 1);
+        }
+      }
+
+     index = this.reservations.indexOf(reservation);
       this.reservations.splice(index, 1);
     }
 
@@ -244,6 +377,7 @@ export class AppComponent implements OnInit{
     JSON.stringify(login)
     this.httpClient.put(this.baseURL + "/login/credentials", login).subscribe(res => {
       if (res) {
+
         console.log(res)
         this.loggedIn = true;
         // @ts-ignore
@@ -254,19 +388,11 @@ export class AppComponent implements OnInit{
     })
   }
 
-  //
-  //temporary testing method - remove before full launch.
-  addOrSub(condition: number, amount: number){
-      if (condition == 0){
-        this.user.addPoints(amount)
-      } else { this.user.subtractPoints(amount) }
-  }
-  //temporary testing method - remove before full launch.
-  //
-
   logout(){
     if (this.loggedIn){
       this.saveUserInfo();
+      this.reservationDisplayToggle = 0;
+      this.scene = 0;
       this.loggedIn = false;
       this.user = null;
     }
@@ -303,12 +429,19 @@ export class AppComponent implements OnInit{
 
 
     onSubmit({value,valid}:{value:Roomsearch,valid:boolean}){
+      //this.rooms=[]
       this.reservationDisplayToggle = 0;
       this.getAll().subscribe(
 
         rooms => {
-          console.log(Object.values(rooms)[0]);
-          this.rooms=<Room[]>Object.values(rooms)[0];
+
+          if (rooms == null){
+            alert("Please ensure check-in date is before check-out date!")
+          } else {
+            console.log(rooms[0]);
+            this.rooms=<Room[]>Object.values(rooms)[0];
+          }
+
         }
 
 
@@ -331,6 +464,7 @@ export class AppComponent implements OnInit{
       else if (method == "points" && this.user.rewards >= roomPrice){
         alert("Paying with points!")
         this.user.subtractPoints(roomPrice)
+        this.saveUserInfo()
       } else {
         alert("You don't have enough points, reverting to normal payment!")
       }
@@ -484,25 +618,70 @@ export class ReserveRoomRequest {
   }
 }
 
-/*
-var ROOMS: Room[]=[
-  {
-  "id": "13932123",
-  "roomNumber" : "409",
-  "price" :"20",
-  "links" : ""
-},
-{
-  "id": "139324444",
-  "roomNumber" : "509",
-  "price" :"30",
-  "links" : ""
-},
-{
-  "id": "139324888",
-  "roomNumber" : "609",
-  "price" :"40",
-  "links" : ""
+
+//Special Classes used for displaying data reports
+export class DataReportUser{
+  id: string;
+  userName: string;
+  password: string;
+  rewards: string;
+  reservedRes: string[]
+
+
+  constructor(id: string, userName: string, password: string, rewards: string, reservedRes: string[]) {
+    this.id = id;
+    this.userName = userName;
+    this.rewards = rewards;
+    this.password = password;
+    this.reservedRes = reservedRes;
+  }
 }
-] */
+
+export class DataReportReservation{
+  id: string;
+  checkin: string;
+  checkout: string;
+  attachedRoomNumber: string;
+
+
+  constructor(id: string, checkin: string, checkout: string, attachedRoomNumber: string) {
+    this.id = id;
+    this.checkin = checkin;
+    this.checkout = checkout;
+    this.attachedRoomNumber = attachedRoomNumber;
+  }
+}
+
+export class DataReportRoom{
+  id: string;
+  roomNumber: string;
+  price: string;
+  attachedAdditions: string[];
+
+
+
+
+  constructor(id: string, roomNumber: string, price: string, attachedAdditions: string[]) {
+    this.id = id;
+    this.roomNumber = roomNumber;
+    this.price = price;
+    this.attachedAdditions = attachedAdditions;
+  }
+}
+
+export class DataReportAdditions{
+  id: string;
+  name: string;
+  description: string;
+  price: string;
+
+
+
+  constructor(id: string, name: string,description: string, price: string) {
+    this.id = id;
+    this.name = name;
+    this.description = description;
+    this.price = price;
+  }
+}
 

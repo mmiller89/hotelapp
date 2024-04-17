@@ -49,6 +49,16 @@ table {
   border-spacing: 0;
 }
 
+.standard {
+  table-layout: auto;
+  border-collapse: separate;
+  border-spacing: 30px;
+}
+
+.standard th {
+  font-weight: 600;
+}
+
 /* line 28, ../../../../../.rvm/gems/ruby-2.1.2/gems/compass-core-1.0.0.rc.1/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
@@ -127,7 +137,7 @@ body {
 }
 
 .list-normal{
-  list-style-type: disc;
+  list-style-type: square;
 }
 
 .nav-scene{
