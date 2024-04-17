@@ -1,9 +1,11 @@
 package edu.wgu.d387_sample_code.model.request;
 
+import edu.wgu.d387_sample_code.entity.AdditionEntity;
 import edu.wgu.d387_sample_code.entity.UsersEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class ReservationRequest {
 

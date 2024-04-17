@@ -126,6 +126,10 @@ body {
   margin-right: 20px;
 }
 
+.list-normal{
+  list-style-type: disc;
+}
+
 .nav-scene{
   overflow-y: scroll;
   height: 400px;

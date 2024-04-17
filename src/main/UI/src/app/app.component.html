@@ -19,9 +19,8 @@
 
         <div class="white" *ngIf="loggedIn == true">
           <span class="right-push">Welcome {{this.user.userName}}! - Rewards Points: {{this.user.rewards}}</span>
-          <button type="submit" class="login-button" (click)="logout()">Sign Out</button>
-          <button type="submit" class="login-button" (click)="addOrSub(0)">Add 50</button>
-          <button type="submit" class="login-button" (click)="addOrSub(1)">Minus 50</button>
+          <button type="submit" class="login-button right-push" (click)="logout()">Sign Out</button>
+          <button type="submit" class="login-button" (click)="addOrSub(0, 500)">Add 500</button>
         </div>
 
       </div>
@@ -75,20 +74,22 @@
                     <input id="checkout" type="date" class="form-control" formControlName="checkout">
                   </div>
                 </div>
+              </form>
 
                 <div class="form-group">
                   <div class="col-offset-2 col-12">
-                    <button type="submit" class="btn btn-primary btn-lg right-push"> Search</button>
-
+                    <button type="submit" class="btn btn-primary btn-lg right-push" (click)="onSubmit(roomsearch)"> Search</button>
+                    <button *ngIf="this.user!=null" class="btn btn-primary btn-lg" (click)="displayUserReservations()">Show Reservations</button>
+                    <button type="submit" class="btn btn-primary btn-lg right-push" (click)="display()"> Display</button>
                   </div>
                 </div>
-              </form>
-              <button *ngIf="this.user!=null" class="btn btn-primary btn-lg" (click)="displayUserReservations()">Show Reservations</button>
+
 
 
             </div>
           </div>
 
+          <div *ngIf="reservationDisplayToggle==0">
           <h1>Available Rooms</h1>
 
           <div class="row" *ngIf="rooms">
@@ -106,7 +107,6 @@
                       <strong>Price:</strong>
                       <p> {{ room.price | currency:'USD':'symbol'}}</p>
                       <p> {{ room.price | currency:'CAD':'symbol'}}</p>
-                      <p> {{ room.price | currency:'EUR':'symbol'}}</p>
                     </td>
                     <td *ngIf="this.user==null">
                       Log in now to reserve!
@@ -121,6 +121,63 @@
               </div>
             </div>
           </div>
+          </div>
+
+          <div *ngIf="reservationDisplayToggle==1">
+            <h1>Your Reservations</h1>
+
+            <div class="row" *ngIf="reservations.length > 0">
+              <div class="col-12">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <th>Reservation Info</th>
+                      <th>Room Additions</th>
+                      <th>Add Additions (All Sales Final)</th>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let reserve of reservations">
+                      <td>
+                        <p>
+                          <strong>Room #:</strong> {{reserve.roomNumber}}
+                          <button type="submit" class="btn btn-danger right-push" (click)="deleteReservation(reserve)">Delete</button>
+                        </p>
+                        <p><strong>Price:</strong> {{reserve.roomPrice}}</p>
+                        <p><strong>Check-In:</strong> {{reserve.checkin}}</p>
+                        <p><strong>Check-Out:</strong> {{reserve.checkout}}</p>
+                      </td>
+                      <td>
+                        <p *ngIf="reserve.additions.length==0">No services or additions added.</p>
+                        <div *ngIf="reserve.additions.length>0">
+                          <ul class="list-normal" *ngFor="let add of reserve.additions">
+                            <li *ngIf="add.name">{{add.name}}</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <td>
+                          <p *ngIf="reserve.breakSwitch">Breakfast in Bed ({{ 50 | currency:'USD':'symbol'}}, {{ 50 | currency:'CAD':'symbol'}})
+                            <input type="checkbox" id="bandb" class="check-box" name="Breakfast in Bed" (change)="logAdditions($event, reserve, 50)"></p>
+                        <p *ngIf="reserve.towelSwitch">Premium Bed Sheets ({{ 30 | currency:'USD':'symbol'}}, {{ 30 | currency:'CAD':'symbol'}})
+                        <input type="checkbox" id="psheets" class="check-box" name="Premium Bed Sheets" (change)="logAdditions($event, reserve, 30)"></p>
+                        <p *ngIf="reserve.poolSwitch">VIP Pool Access ({{ 150 | currency:'USD':'symbol'}}, {{ 150 | currency:'CAD':'symbol'}})
+                        <input type="checkbox" id="vippool" class="check-box" name="VIP Pool Pass" (change)="logAdditions($event, reserve, 150)"></p><br>
+
+                        <p><strong>Total Cost: {{ reserve.cashOut | currency:'USD':'symbol'}}, {{ reserve.cashOut | currency:'CAD':'symbol'}} </strong></p>
+                        <button type="submit" class="btn btn-primary right-push" (click)="buyAdditions('cash', reserve)">Cash/Card</button><button type="submit" class="btn btn-primary" (click)="buyAdditions('rewards', reserve)">Rewards</button>
+                      </td>
+
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" *ngIf="reservations.length==0">
+              No Reservations Exist!
+            </div>
+          </div>
+
         </article>
 
 

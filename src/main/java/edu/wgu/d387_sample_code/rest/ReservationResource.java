@@ -3,16 +3,20 @@ package edu.wgu.d387_sample_code.rest;
 
 import edu.wgu.d387_sample_code.controller.LoginController;
 import edu.wgu.d387_sample_code.convertor.*;
+import edu.wgu.d387_sample_code.entity.AdditionEntity;
 import edu.wgu.d387_sample_code.entity.ReservationEntity;
 import edu.wgu.d387_sample_code.entity.RoomEntity;
 import edu.wgu.d387_sample_code.entity.UsersEntity;
 import edu.wgu.d387_sample_code.model.request.ReservationRequest;
+import edu.wgu.d387_sample_code.model.request.UpdateAdditionsRequest;
 import edu.wgu.d387_sample_code.model.response.ReservableRoomResponse;
 import edu.wgu.d387_sample_code.model.response.ReservationResponse;
 //import edu.wgu.d387_sample_code.repository.PageableRoomRepository;
+import edu.wgu.d387_sample_code.repository.AdditionRepository;
 import edu.wgu.d387_sample_code.repository.ReservationRepository;
 import edu.wgu.d387_sample_code.repository.RoomRepository;
 import edu.wgu.d387_sample_code.repository.UsersRepository;
+import org.hibernate.sql.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.convert.ConversionService;
@@ -34,11 +38,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.swing.text.html.Option;
+import javax.transaction.Transactional;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @RequestMapping(ResourceConstants.ROOM_RESERVATION_V1)
@@ -62,6 +64,9 @@ public class ReservationResource {
 
         @Autowired
         UsersRepository usersRepository;
+
+        @Autowired
+        AdditionRepository additionRepository;
 
         @Autowired
         private RoomEntityToReservableRoomResponseConverter converter;
@@ -118,7 +123,7 @@ public class ReservationResource {
     }
 
     @RequestMapping(path = "/reservationlist/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Set<ReservationEntity>> displayUserReservations(
+    public ResponseEntity<List<ReservationEntity>> displayUserReservations(
             @PathVariable
                 Long userId) {
 
@@ -129,12 +134,28 @@ public class ReservationResource {
             usersEntity= result.get();
         }
         else {
-            // we didn't find the employee
-            //throw new RuntimeException("Did not find part id - " + theId);
             return null;
         }
 
         return new ResponseEntity<>(usersEntity.getReservationEntities(), HttpStatus.OK);
+    }
+
+    @RequestMapping(path = "reservationlist/testest/{userIds}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UsersEntity> TEST(
+            @PathVariable
+            Long userIds) {
+
+        Optional<UsersEntity> result  = usersRepository.findById(userIds);
+        UsersEntity usersEntity = null;
+
+        if (result.isPresent()) {
+            usersEntity= result.get();
+        }
+        else {
+            return null;
+        }
+
+        return new ResponseEntity<>(usersEntity, HttpStatus.OK);
     }
 
     @RequestMapping(path = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
@@ -179,6 +200,7 @@ public class ReservationResource {
 
         roomRepository.save(roomEntity);
         reservationEntity.setRoomEntity(roomEntity);
+        reservationRepository.save(reservationEntity);
 
 
 
@@ -189,17 +211,66 @@ public class ReservationResource {
 
     @RequestMapping(path = "", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ReservableRoomResponse> updateReservation(
+    public ResponseEntity<RoomEntity> updateReservation(
             @RequestBody
-            ReservationRequest reservationRequest) {
+            UpdateAdditionsRequest updateRequest) {
 
-        return new ResponseEntity<>(new ReservableRoomResponse(), HttpStatus.OK);
+
+
+        Optional<RoomEntity> repo  = roomRepository.findById(updateRequest.getRoomId());
+        RoomEntity roomEntity = null;
+
+        if (repo.isPresent()) {
+            roomEntity = repo.get();
+        }
+//        Optional<ReservationEntity> repo2 = reservationRepository.findById(updateRequest.getReservationId());
+//        ReservationEntity reservationEntity = null;
+//
+//        if (repo2.isPresent()) {
+//            reservationEntity = repo2.get();
+//        }
+//
+//        Optional<UsersEntity> repo3 = usersRepository.findById(updateRequest.getUserId());
+//        UsersEntity usersEntity = null;
+//
+//        if (repo3.isPresent()) {
+//            usersEntity = repo3.get();
+//        }
+
+        for (AdditionEntity value: updateRequest.getAdditions()){
+
+            Long l = value.getId();
+
+            Optional<AdditionEntity> add = additionRepository.findById(l);
+            AdditionEntity addEntity = null;
+
+            if (add.isPresent()) {
+                addEntity = add.get();
+                roomEntity.addAdditionEntries(addEntity);
+
+            }
+
+        }
+
+        roomRepository.save(roomEntity);
+
+
+
+
+        //We have tested that the roomEntity IS NOT EMPTY, ADDITIONS WERE ADDED.
+
+
+        return new ResponseEntity<>(roomEntity, HttpStatus.OK);
     }
 
     @RequestMapping(path = "/{reservationId}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> deleteReservation(
             @PathVariable
             long reservationId) {
+        try{
+            reservationRepository.deleteById(reservationId);
+        } catch (Exception e){}
+
 
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }

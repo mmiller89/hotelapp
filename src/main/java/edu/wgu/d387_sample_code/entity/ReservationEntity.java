@@ -26,7 +26,7 @@ public class ReservationEntity {
     private RoomEntity roomEntity;
 
     @JsonBackReference
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private UsersEntity usersEntity;
 

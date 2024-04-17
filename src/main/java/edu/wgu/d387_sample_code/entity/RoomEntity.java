@@ -3,7 +3,9 @@ package edu.wgu.d387_sample_code.entity;
 import com.sun.istack.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -21,6 +23,12 @@ public class RoomEntity {
 
 	@NotNull
 	private String price;
+
+//	@OneToMany(cascade = CascadeType.ALL, orphanRemoval=true, fetch = FetchType.LAZY)
+//	private Set<AdditionEntity> additionEntities;
+
+	@ManyToMany
+	private Set<AdditionEntity> additionEntities;
 
 	public RoomEntity() {
 	}
@@ -54,4 +62,18 @@ public class RoomEntity {
 		this.price = price;
 	}
 
+	public Set<AdditionEntity> getAdditionEntities() {
+		return additionEntities;
+	}
+
+	public void setAdditionEntities(Set<AdditionEntity> additionEntities) {
+		this.additionEntities = additionEntities;
+	}
+
+	public void addAdditionEntries(AdditionEntity additionEntity) {
+		if (additionEntities == null){
+			additionEntities = new HashSet<>();
+		}
+		additionEntities.add(additionEntity);
+	}
 }

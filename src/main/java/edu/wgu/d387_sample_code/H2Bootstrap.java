@@ -1,15 +1,14 @@
 package edu.wgu.d387_sample_code;
 
-import edu.wgu.d387_sample_code.entity.ReservationEntity;
+import edu.wgu.d387_sample_code.entity.AdditionEntity;
 import edu.wgu.d387_sample_code.entity.RoomEntity;
 import edu.wgu.d387_sample_code.entity.UsersEntity;
+import edu.wgu.d387_sample_code.repository.AdditionRepository;
 import edu.wgu.d387_sample_code.repository.RoomRepository;
 import edu.wgu.d387_sample_code.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
 
 
 @Component
@@ -20,6 +19,9 @@ public class H2Bootstrap implements CommandLineRunner {
 
 	@Autowired
 	UsersRepository usersRepository;
+
+	@Autowired
+	AdditionRepository additionRepository;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -62,12 +64,29 @@ public class H2Bootstrap implements CommandLineRunner {
 
 		UsersEntity user1 = new UsersEntity("Guest", "123", 1500);
 		user1.setId(1L);
-
+		usersRepository.save(user1);
 		UsersEntity user2 = new UsersEntity("Executive", "777", 15000);
 		user2.setId(2L);
-
-		usersRepository.save(user1);
 		usersRepository.save(user2);
+
+
+
+
+		AdditionEntity add1 = new AdditionEntity("Breakfast in Bed", "Cozy", 50);
+		add1.setId(1L);
+		additionRepository.save(add1);
+
+		AdditionEntity add2 = new AdditionEntity("Premium Bed Sheets", "Luxurious", 30);
+		add1.setId(2L);
+		additionRepository.save(add2);
+
+		AdditionEntity add3 = new AdditionEntity("VIP Pool Pass", "Cool", 150);
+		add1.setId(3L);
+		additionRepository.save(add3);
+
+		System.out.println("Addition repository has..." + additionRepository.count() + " entities");
+
+
 
 	}
 

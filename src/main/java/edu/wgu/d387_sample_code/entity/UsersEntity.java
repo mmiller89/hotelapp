@@ -26,8 +26,8 @@ public class UsersEntity {
 	@NotNull
 	private Integer rewardsPoints;
 
-	@OneToMany(mappedBy = "usersEntity", cascade = CascadeType.ALL, orphanRemoval=true, fetch = FetchType.LAZY)
-	private Set<ReservationEntity> reservationEntities = new HashSet<>();
+	@OneToMany(mappedBy = "usersEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<ReservationEntity> reservationEntities = new ArrayList<>();
 
 
 
@@ -78,17 +78,17 @@ public class UsersEntity {
 		this.id = id;
 	}
 
-	public Set<ReservationEntity> getReservationEntities() {
+	public List<ReservationEntity> getReservationEntities() {
 		return reservationEntities;
 	}
 
-	public void setReservationEntities(Set<ReservationEntity> reservation){
+	public void setReservationEntities(List<ReservationEntity> reservation){
 		this.reservationEntities = reservation;
 	}
 
 	public void addReservationEntities(ReservationEntity reservationEntity) {
 		if (reservationEntities == null){
-			reservationEntities = new HashSet<>();
+			reservationEntities = new ArrayList<>();
 		}
 		reservationEntities.add(reservationEntity);
 	}

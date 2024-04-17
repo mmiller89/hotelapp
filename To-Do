@@ -5,15 +5,8 @@ Steps:
 3) Creation of the User class with username, password, rewards points, and tying into database room/room service. (✔️)
 4) Allow User to reserve room with points if there is enough, deduct points. (✔️)
 5) Link Users to Room/Reservations (✔️)
-
-6) Implement room service capabilities.
-(Add more to bottom of orange page, as "Additional Services")
-(Link the user with the reserved rooms, create a roomAddition class -> add one to many link for room -> roomAddition)
-(Deduct points as needed, add room service to list)
-
-
-6) Implement a search (in book room) to see what rooms the user has booked.
-(See above)
+6) Implement room service capabilities.(✔️)
+7) Implement a search (in book room) to see what rooms the user has booked.(✔️)
 
 
 
@@ -22,13 +15,13 @@ PART B
 ---------------
 ●  code including inheritance, polymorphism, and encapsulation (✔️)
 
-●  search functionality with multiple row results and displays
+●  search functionality with multiple row results and displays(✔️)
 
-●  a database component with the functionality to securely add, modify, and delete the data (Create a User Function can be add data)
+●  a database component with the functionality to securely add, modify, and delete the data (✔️)
 
 ●  ability to generate reports with multiple columns, multiple rows, date-time stamps, and title
 
-●  validation functionality
+●  validation functionality (Validate that check in is before check out!)
 
 ●  industry-appropriate security features (✔️)
 
