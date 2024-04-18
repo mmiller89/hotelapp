@@ -33,15 +33,15 @@ Scales up/down decently, less scrolling.
 
 PART C
 -------------------------------------------
-●  a design document including a class diagram and design diagram
+●  a design document including a class diagram and design diagram (✔️)
 
-●  link to where the web app is hosted with HTML code (if applicable)
+●  link to where the web app is hosted with HTML code (if applicable) (✔️)
 
-●  link to the GitLab repository of the code indicating the version included in this submission
+●  link to the GitLab repository of the code indicating the version included in this submission (✔️)
 
-●  user guide for setting up and running the application for maintenance purposes
+●  user guide for setting up and running the application for maintenance purposes(✔️)
 
-●  user guide for running the application from a user perspective
+●  user guide for running the application from a user perspective(✔️)
 ------------------------------------------
 
 PART D
