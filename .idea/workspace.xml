@@ -5,17 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64c25362-4ffe-4c22-8c56-c72c076c78bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Capstone Documentation/Design Draft.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Capstone Documentation/Maintenance Guide.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Capstone Documentation/Unit Test Summary and Changes - Copy.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Capstone Documentation/User Guide.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Capstone Documentation/Deployment Script.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Capstone Documentation/Deployment.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Capstone Documentation/Unit Test Summary and Changes.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Capstone Documentation/Unit Test Summary and Changes.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Capstone Documentation/Unit Test Summary and Changes - Copy.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/To-Do" beforeDir="false" afterPath="$PROJECT_DIR$/To-Do" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/entity/RoomEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/entity/RoomEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/wgu/d387_sample_code/D387SampleCodeApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/wgu/d387_sample_code/D387SampleCodeApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +59,7 @@
     "JUnit.D387SampleCodeApplicationTests.executor": "Run",
     "Maven.D387_sample_code [clean].executor": "Run",
     "Maven.D387_sample_code [compile].executor": "Run",
+    "Maven.D387_sample_code [package].executor": "Run",
     "Maven.D387_sample_code [validate].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -184,7 +183,8 @@
       <workItem from="1713215253664" duration="11509000" />
       <workItem from="1713274327125" duration="7086000" />
       <workItem from="1713290589709" duration="34889000" />
-      <workItem from="1713365980831" duration="23782000" />
+      <workItem from="1713365980831" duration="25056000" />
+      <workItem from="1713458758258" duration="4860000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,5 @@
+Run these commands in the /hotelapp folder
+
+docker build -tag landon .
+docker tag landon:latest mmiller9280/landonhotel
+docker push mmiller9280/landonhotel
