@@ -24,9 +24,6 @@ public class RoomEntity {
 	@NotNull
 	private String price;
 
-//	@OneToMany(cascade = CascadeType.ALL, orphanRemoval=true, fetch = FetchType.LAZY)
-//	private Set<AdditionEntity> additionEntities;
-
 	@ManyToMany
 	private Set<AdditionEntity> additionEntities;
 

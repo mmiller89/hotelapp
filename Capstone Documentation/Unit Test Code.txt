@@ -64,7 +64,7 @@ class D387SampleCodeApplicationTests {
 	}
 
 	@Test
-	public void correctDeletionOfEntities(){
+	public void ensureCorrectDeletionOfEntities(){
 
 		LocalDate checkin = LocalDate.of( 2024, 4, 16 );
 		LocalDate checkout = LocalDate.of( 2024, 4, 22 );
@@ -79,7 +79,7 @@ class D387SampleCodeApplicationTests {
 
 	@Test
 
-	public void correctUpdate(){
+	public void ensureCorrectUpdate(){
 		RoomEntity rm1 = new RoomEntity(444, "125", false);
 
 		roomRepository.save(rm1);

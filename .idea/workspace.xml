@@ -6,45 +6,86 @@
   <component name="ChangeListManager">
     <list default="true" id="64c25362-4ffe-4c22-8c56-c72c076c78bf" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/main.6023a3892856c7e1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Capstone Documentation/Test 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Capstone Documentation/Test 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Capstone Documentation/Test 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Capstone Documentation/Test 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Capstone Documentation/UML Diagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Capstone Documentation/Unit Test Code.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Capstone Documentation/Unit Test Summary and Changes.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/To-Do" beforeDir="false" afterPath="$PROJECT_DIR$/To-Do" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/2.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/58.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/58.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/78.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/78.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/79.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/79.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/80.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/80.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/81.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/81.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/82.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/82.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/83.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/83.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/index.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/.angular/cache/14.2.1/angular-webpack/df0172f680d67a8f917f96b77396172540d402ac/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/src/app/app.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/H2Bootstrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/H2Bootstrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/convertor/RoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/convertor/RoomService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/convertor/RoomServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/convertor/RoomServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/entity/ReservationEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/entity/ReservationEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/entity/RoomEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/entity/RoomEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/rest/ReservationResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/wgu/d387_sample_code/rest/ReservationResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/main.92e911f1374a922b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/H2Bootstrap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/H2Bootstrap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/LoginController$Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/LoginController$Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/LoginController$User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/LoginController$User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/convertor/RoomService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/convertor/RoomService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/convertor/RoomServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/convertor/RoomServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/entity/ReservationEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/entity/ReservationEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/entity/RoomEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/entity/RoomEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/rest/ReservationResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/wgu/d387_sample_code/rest/ReservationResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/main.0a86a121355964cb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/main.92e911f1374a922b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/wgu/d387_sample_code/D387SampleCodeApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/wgu/d387_sample_code/D387SampleCodeApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.024f0e6483cd49fe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.03b6021c7ce63206.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.076252566b0b3c47.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.08f41f5d38c40515.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.0bdd8e06653900f2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.11f5086dea211313.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.13e01b8bebe7e7ba.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.14982874f704a793.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.19086293953b050b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.1d12aa2d236f6d60.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.37afe1736edd62d2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.4068d8097fbd9044.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.40d3619c59569639.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.40db0b694ac866cd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.429c0ccf911e0aa6.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.43dbabf26bb1de70.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.44760df9f49f2d0a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.4bbfc277e4a9ecd3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.4d4e32371ff20820.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.4d5f3fc9b14ce8ef.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.4fcc0fad135931c4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.580a757aac40b124.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.5bcabdc7b0025a42.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.62e5721072b21c16.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.648ccbcc50a28ffb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.6b23ca239054189c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.6c5c6d31955541fe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.79cbbf8fb3f6daf0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.7bd626c29f42a165.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.7d055d2abd0bc8f5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.82457fd6d321b77b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.8d5032833896acf6.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.8dcdf0ffe9c305af.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.8e52156f157ba92a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.912092141bc2fd18.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.944c547466851cf3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.95e0d9bc655617be.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.a043b3e6bcbca41d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.a5e799917aeaaf07.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.a68a7a09cdb1cbbe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.aa6f98ed7ed65d5b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.ad866a7a75e96282.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.b5369058030f4706.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.b66037c159f3de3b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.b68882726aefc347.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.b6b199aea34561dc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.bfc712a159a11101.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.c029ce3bf98a2318.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.c13dee0c4130caa7.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.c44fff5409875bd8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.c8b8c21f0c21bf09.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.cfe492c2b0dcc10e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.d31b97193bcaabb2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.d641ea3cf26a7744.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.d9567ff83533c926.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.d9f0122f4579813e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.dbfea9d6a24241ef.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.dd007057994029b3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.de02b7d6464abc41.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.df21aeb8b8c8dc87.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.e0875c0edec315e1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.e181b28b53ea48b8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.e7d3bf14098abfbc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.eab44defc1ff1609.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.eb84860b583a7413.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.ec7d82f570229a72.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.f8685504282bd4d4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/main.fa5719d47dee2323.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,38 +124,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Maven.D387_sample_code [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.D387_sample_code [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.D387_sample_code [validate].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.D387SampleCodeApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.LandonHotelApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mchlm/OneDrive/Desktop/School Projects/d387-advanced-java-working_branch/hotelapp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\mchlm\\OneDrive\\Desktop\\School Projects\\d387-advanced-java-working_branch\\hotelapp\\src\\main\\UI\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "JUnit.D387SampleCodeApplicationTests.ensureCorrectDeletionOfEntities.executor": "Debug",
+    "JUnit.D387SampleCodeApplicationTests.executor": "Run",
+    "Maven.D387_sample_code [clean].executor": "Run",
+    "Maven.D387_sample_code [compile].executor": "Run",
+    "Maven.D387_sample_code [validate].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.D387SampleCodeApplication.executor": "Run",
+    "Spring Boot.LandonHotelApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/mchlm/OneDrive/Desktop/School Projects/d387-advanced-java-working_branch/hotelapp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\mchlm\\OneDrive\\Desktop\\School Projects\\d387-advanced-java-working_branch\\hotelapp\\src\\main\\UI\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;TEXT&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="edu.wgu.d387_sample_code.model.request" />
@@ -123,7 +166,22 @@
       <recent name="edu.wgu.d387_sample_code.convertor" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.LandonHotelApplication">
+  <component name="RunManager" selected="JUnit.D387SampleCodeApplicationTests">
+    <configuration name="D387SampleCodeApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="D387_sample_code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.wgu.d387_sample_code.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.wgu.d387_sample_code" />
+      <option name="MAIN_CLASS_NAME" value="edu.wgu.d387_sample_code.D387SampleCodeApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="hotelapp" />
       <method v="2">
@@ -159,6 +217,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.D387SampleCodeApplicationTests" />
         <item itemvalue="Spring Boot.LandonHotelApplication" />
       </list>
     </recent_temporary>
@@ -195,7 +254,7 @@
       <workItem from="1713215253664" duration="11509000" />
       <workItem from="1713274327125" duration="7086000" />
       <workItem from="1713290589709" duration="34889000" />
-      <workItem from="1713365980831" duration="15891000" />
+      <workItem from="1713365980831" duration="21451000" />
     </task>
     <servers />
   </component>
